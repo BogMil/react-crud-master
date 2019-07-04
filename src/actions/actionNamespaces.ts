@@ -1,0 +1,1 @@
+export const REACTABLE :string ="REACTABLE"
