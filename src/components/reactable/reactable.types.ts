@@ -1,12 +1,13 @@
 import { ColModel } from "../../types/ColModel";
 import { IReduxAction } from "../../types/IReduxAction";
-import { resizeColumn, setColumnToResize } from "./reactable.actions";
+import { resizeColumn, setColumnToResize, changeOrderDirection } from "./reactable.actions";
 
 export const ReactableActionTypeNames = {
   SET_COL_MODELS: "SET_COL_MODELS",
   RESIZE_COLUMN:"RESIZE_COLUMN",
   SET_COLUMN_TO_RESIZE:"SET_COLUMN_TO_RESIZE",
-  SET_INITIAL_TABLE_OFFSET_WIDTH:'SET_INITIAL_TABLE_OFFSET_WIDTH'
+  SET_INITIAL_TABLE_OFFSET_WIDTH:'SET_INITIAL_TABLE_OFFSET_WIDTH',
+  CHANGE_ORDER_DIRECTION : 'CHANGE_ORDER_DIRECTION'
 }
 
 export interface SetColModelsRetType extends IReduxAction {
@@ -37,9 +38,14 @@ export interface ResetTableoffsetWidthRetType extends IReduxAction {
   type: typeof ReactableActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH
 }
 
+export interface ChangeOrderDirectionRetType extends IReduxAction {
+  type: typeof ReactableActionTypeNames.CHANGE_ORDER_DIRECTION
+  payload: {
+    column:ColModel
+  },
+}
 
-
-export type ReactableActionType = SetColModelsRetType | ResizeColumnRetType | SetColumnToResizeRetType | ResetTableoffsetWidthRetType
+export type ReactableActionType = SetColModelsRetType | ResizeColumnRetType | SetColumnToResizeRetType | ResetTableoffsetWidthRetType | ChangeOrderDirectionRetType
 
 // export const ReactableActionTypes
 
@@ -122,7 +128,8 @@ export interface ReactableDispatchProps {
   setColModels: (colModels: ColModel[]) => void,
   resizeColumn: (e: MouseEvent) => void,
   setColumnToResize:(column?:ColModel | null,e?:any | null)=>void,
-  resetTableoffsetWidth :()=>void
+  resetTableoffsetWidth :()=>void,
+  changeOrderDirection:(column:ColModel)=>void,
 }
 
 export type ReactableProps = ReactableOwnProps & ReactableStateProps & ReactableDispatchProps;

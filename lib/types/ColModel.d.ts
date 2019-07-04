@@ -6,7 +6,7 @@ export declare class ColModel {
     name: string;
     label: string;
     width: number;
-    order: string;
+    orderDirection: string;
     showColMenuModal: boolean;
     calculateMinWithOfColumnByLabel: (label: string) => number;
     private getWidthOfWord;

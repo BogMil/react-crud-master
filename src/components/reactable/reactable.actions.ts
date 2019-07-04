@@ -45,10 +45,21 @@ export function setColumnToResize(column:(ColModel | null) = null,e: any =null):
     }
 }
 
-export function setInitialTableoffsetWidth(): ReactableActionType {
+export function resetTableoffsetWidth(): ReactableActionType {
     return {
         type:ReactableActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH,
         namespace,
         payload:null
+    }
+}
+
+
+export function changeOrderDirection(column : ColModel): ReactableActionType {
+    return {
+        type:ReactableActionTypeNames.CHANGE_ORDER_DIRECTION,
+        namespace,
+        payload:{
+            column
+        }
     }
 }

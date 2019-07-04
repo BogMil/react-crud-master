@@ -8,6 +8,7 @@ import {
     SetColModelsRetType,
     ResizeColumnRetType,
     SetColumnToResizeRetType,
+    ChangeOrderDirectionRetType,
 } from './reactable.types'
 import update from 'immutability-helper'
 export const initialState = {
@@ -60,7 +61,7 @@ export function reactableReducer(
             let newState = update(state, { colModels: { $set: colModels }, tableWidth: { $set: tableWidth } });
 
             return newState;
-            
+
         case ReactableActionTypeNames.SET_COLUMN_TO_RESIZE:
             {
                 let typedAction = <SetColumnToResizeRetType>action;
@@ -75,6 +76,28 @@ export function reactableReducer(
             {
                 let tableBody = document.getElementById(`${state.reactableId}-reactable`)!;
                 return Object.assign({}, { ...state }, { width: tableBody.offsetWidth })
+            }
+
+        case ReactableActionTypeNames.CHANGE_ORDER_DIRECTION:
+            {
+                let typedAction = <ChangeOrderDirectionRetType>action;
+                let colModels = state.colModels.map((column) => {
+
+                    if (column.name == typedAction.payload.column.name) {
+
+                        if (column.orderDirection === "asc")
+                            column.orderDirection = "desc";
+                        else if (column.orderDirection === "desc")
+                            column.orderDirection = "";
+                        else column.orderDirection = "asc";
+                    }else{
+                        column.orderDirection=""
+                    }
+
+                    return column;
+                });
+                
+                return Object.assign({}, { ...state }, { colModels: colModels })
             }
         default:
             return state

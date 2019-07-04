@@ -7,14 +7,13 @@ declare class ReactableComponent extends Component<ReactableProps, ReactableStat
     constructor(props: ReactableProps);
     setData: (data: any) => void;
     componentDidMount: () => void;
-    setInitialTableoffsetWidth: () => void;
     componentWillMount: () => void;
     disableResizingColumnIfInResizeMode: () => void;
     resizeColumnIfInResizeMode: (e: MouseEvent) => void;
     enableTextSelectionOnPage: () => void;
     componentWillUnmount: () => void;
     handleWindowSizeChange: () => void;
-    onThClick: (colName: string) => void;
+    onThClick: (column: ColModel) => void;
     onClickOnRow: (row: any) => void;
     render(): JSX.Element;
     contextTrigger: any;

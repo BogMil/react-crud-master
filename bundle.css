@@ -132,6 +132,7 @@ table {
   vertical-align: middle !important;
   position: sticky;
   background-color: "#c6cad4";
+  -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
 }
 
 .column-header-content-holder {

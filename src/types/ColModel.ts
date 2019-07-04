@@ -38,7 +38,7 @@ export class ColModel {
     public name: string = "";
     public label: string = "";
     public width: number = 0;
-    public order: string = "";
+    public orderDirection: string = "";
     public showColMenuModal: boolean = false;
 
     public calculateMinWithOfColumnByLabel = (label: string): number => {
