@@ -1,5 +1,7 @@
 import { ColModel } from "../../types/ColModel";
 import { IReduxAction } from "../../types/IReduxAction";
+import { AnyAction } from "redux";
+import { ThunkAction } from "redux-thunk";
 export declare const ReactableActionTypeNames: {
     SET_COL_MODELS: string;
     RESIZE_COLUMN: string;
@@ -85,7 +87,7 @@ export interface ReactableStateProps {
     tableWidth: number;
 }
 export interface ReactableDispatchProps {
-    setColModels: (colModels: ColModel[]) => void;
+    setColModels: (colModels: ColModel[]) => ThunkAction<Promise<void>, {}, {}, AnyAction>;
     resizeColumn: (e: MouseEvent) => void;
     setColumnToResize: (column?: ColModel | null, e?: any | null) => void;
     resetTableoffsetWidth: () => void;

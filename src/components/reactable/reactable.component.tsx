@@ -19,7 +19,7 @@ import '../contexMenu.css';
 import './reactable.css';
 
 import update from 'immutability-helper'
-import Footer from "../footer.component"
+import TableFooter from "../tableFooter/tableFooter.component"
 import cloneDeep from 'lodash/cloneDeep'
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'
@@ -31,6 +31,8 @@ import { reactableReducer } from "./reactable.reducer";
 import * as ReactableActions from './reactable.actions'
 import { any } from "prop-types";
 import TableHeader from '../tableHeader/tableHeader.component'
+import CrudModal from '../crudModal/crudModal.component'
+import { ThunkDispatch } from "redux-thunk";
 
 class ReactableComponent extends Component<ReactableProps, ReactableState>{
     constructor(props: ReactableProps) {
@@ -109,6 +111,7 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
     render() {
         if (Array.isArray(this.props.colModels) === false)
             throw Error("colModels must be array");
+
         return (
             <>
                 <Card id={`${this.props.reactableId}-reactable`} style={{ minWidth: 360, borderRadius: 0 }}>
@@ -118,7 +121,7 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
                             overflowX: 'hidden',
                             borderRight: '5px solid rgba(0, 0, 0, 0.05)',
                         }} id='z'>
-                            <TableHeader/>
+                            <TableHeader />
                         </div>
                         <div className="reactable-data-table-holder" style={{ overflowX: 'auto', overflowY: 'auto' }} onScroll={(e: any) => this.testScroll(e)}>
                             <Table className="reactable-table reactable-data-table" striped bordered hover size="sm"
@@ -154,18 +157,18 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
                         </div>
                     </Card.Body>
                     < Card.Footer >
-                        <Footer tableWidth={this.props.width} />
+                        <TableFooter tableWidth={this.props.width} />
                     </Card.Footer>
                 </Card>
 
-                < Modal style={{ borderRadius: 0 }}
+                {/* < Modal style={{ borderRadius: 0 }}
                     show={this.state.show}
                     onHide={this.handleClose}
                 >
                     <Modal.Header style={{ borderRadius: 0 }} closeButton >
                         <Modal.Title>Modal heading </Modal.Title>
                     </Modal.Header>
-                    < Modal.Body >
+                    <Modal.Body>
                         {
                             this.props.colModels.map((column) => {
                                 return (
@@ -188,7 +191,7 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
                                 );
                             })}
                     </Modal.Body>
-                    < Modal.Footer >
+                    <Modal.Footer>
                         <Button variant="secondary" onClick={this.handleClose} >
                             Close
                         </Button>
@@ -196,7 +199,9 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
                             Save Changes
                 </Button>
                     </Modal.Footer>
-                </Modal>
+                </Modal> */}
+                {/* {console.log(this.props.colModels)} */}
+                <CrudModal/>
 
                 <ContextMenuTrigger id={`context_menu_${this.props.reactableId}`} ref={c => this.contextTrigger = c}>
                     <span></span>
@@ -204,13 +209,13 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
 
                 <ContextMenu id={`context_menu_${this.props.reactableId}`}>
 
-                    < MenuItem >
+                    <MenuItem>
                         <i className="fas fa-edit" /><span style={{ paddingLeft: 10 }}>Edit</span>
                     </MenuItem>
-                    < MenuItem>
+                    <MenuItem>
                         <i className="fas fa-trash-alt" /><span style={{ paddingLeft: 10 }}>Delete</span>
                     </MenuItem>
-                    < MenuItem>
+                    <MenuItem>
                         <i className="fas fa-eye" /> <span style={{ paddingLeft: 10 }}>View</span>
                     </MenuItem>
                 </ContextMenu>
@@ -304,13 +309,13 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
     onResizing = () => { };
 }
 
-const mapDispatchToProps = (dispatch: Redux.Dispatch<Redux.AnyAction>, ownProps: ReactableOwnProps): ReactableDispatchProps => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>,  ownProps: ReactableOwnProps): ReactableDispatchProps => {
     return {
         setColModels: (colModels: ColModel[]) => dispatch(ReactableActions.setColModels(colModels)),
         resizeColumn: (e: MouseEvent) => dispatch(ReactableActions.resizeColumn(e)),
         setColumnToResize: (column: (ColModel | null) = null, e: (any | null) = null) => dispatch(ReactableActions.setColumnToResize(column, e)),
         resetTableoffsetWidth: () => dispatch(ReactableActions.resetTableoffsetWidth()),
-        changeOrderDirection: (column: ColModel) => dispatch(ReactableActions.changeOrderDirection(column))
+        changeOrderDirection: (column: ColModel) => dispatch(ReactableActions.changeOrderDirection(column)),
     };
 }
 

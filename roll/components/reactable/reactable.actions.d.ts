@@ -1,6 +1,9 @@
 import { ReactableActionType } from './reactable.types';
 import { ColModel } from '../../types/ColModel';
-export declare function setColModels(colModels: ColModel[]): ReactableActionType;
+import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
+export declare function privateSetColModels(colModels: ColModel[]): ReactableActionType;
+export declare const setColModels: (colModels: ColModel[]) => ThunkAction<Promise<void>, {}, {}, AnyAction>;
 export declare function resizeColumn(e: MouseEvent): ReactableActionType;
 export declare function setColumnToResize(column?: (ColModel | null), e?: any): ReactableActionType;
 export declare function resetTableoffsetWidth(): ReactableActionType;

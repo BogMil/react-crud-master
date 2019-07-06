@@ -15,6 +15,7 @@ import { rootReducer, AppState } from '../../rootReducer'
 import { any } from "prop-types";
 import { TableHeaderProps, TableHeaderState, initialState, TableHeaderOwnProps, TableHeaderDispatchProps, TableHeaderStateProps } from "./tableHeader.types";
 import * as ReactableActions from '../reactable/reactable.actions'
+import { ThunkDispatch } from "redux-thunk";
 
 
 class TableHeaderComponent extends Component<TableHeaderProps, TableHeaderState>{
@@ -114,7 +115,7 @@ class TableHeaderComponent extends Component<TableHeaderProps, TableHeaderState>
 
 
 
-const mapDispatchToProps = (dispatch: Redux.Dispatch<Redux.AnyAction>, ownProps: TableHeaderOwnProps): TableHeaderDispatchProps => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>, ownProps: TableHeaderOwnProps): TableHeaderDispatchProps => {
     return {
         setColModels: (colModels: ColModel[]) => dispatch(ReactableActions.setColModels(colModels)),
         resizeColumn: (e: MouseEvent) => dispatch(ReactableActions.resizeColumn(e)),

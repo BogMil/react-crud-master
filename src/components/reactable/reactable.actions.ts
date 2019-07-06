@@ -2,10 +2,13 @@ import { ReactableActionTypeNames, ResizeColumnRetType, SetColModelsRetType, Rea
 import { ColModel } from '../../types/ColModel';
 import { REACTABLE } from '../../actions/actionNamespaces';
 import cloneDeep from 'lodash/cloneDeep';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
+import * as CrudModalActions from '../crudModal/crudModal.actions'
 
 const namespace = REACTABLE;
 
-export function setColModels(colModels: ColModel[]): ReactableActionType {
+export function privateSetColModels(colModels: ColModel[]): ReactableActionType {
     let clonedColModels = cloneDeep(colModels);
 
     let tableWidth: number = 0;
@@ -13,7 +16,10 @@ export function setColModels(colModels: ColModel[]): ReactableActionType {
         tableWidth += colModel.width;
         colModel.showColMenuModal = false;
     });
-    let x= {
+
+    
+
+    return  {
         type: ReactableActionTypeNames.SET_COL_MODELS,
         payload: {
             colModels: clonedColModels,
@@ -21,7 +27,13 @@ export function setColModels(colModels: ColModel[]): ReactableActionType {
         },
         namespace
     }
-    return x;
+}
+
+export const setColModels = (colModels:ColModel[]): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
+    return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+        dispatch(privateSetColModels(colModels));
+        dispatch(CrudModalActions.generateColNamePropertiesInRowData(colModels))
+    }
 }
 
 export function resizeColumn(e: MouseEvent): ReactableActionType {
