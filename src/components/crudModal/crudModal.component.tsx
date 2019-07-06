@@ -32,6 +32,10 @@ class CrudModalComponent extends Component<CrudModalProps, CrudModalState>{
         this.props.closeCrudModal();
     }
 
+    onRowDataChange = (name: string, value: any) => {
+        this.props.onRowDataChange(name, value);
+    };
+
     render() {
         return (
 
@@ -57,7 +61,7 @@ class CrudModalComponent extends Component<CrudModalProps, CrudModalState>{
                                             {column.name}
                                         </Form.Label>
                                         < Form.Control
-                                            // onChange={(e: any) => this.onModalInputChange(column.name, e.target.value)}
+                                            onChange={(e: any) => this.onRowDataChange(column.name, e.target.value)}
                                             type="text"
                                             placeholder={column.name}
                                             value={this.props.rowData[column.name]}
@@ -87,6 +91,7 @@ class CrudModalComponent extends Component<CrudModalProps, CrudModalState>{
 const mapDispatchToProps = (dispatch: Redux.Dispatch<Redux.AnyAction>, ownProps: CrudModalOwnProps): CrudModalDispatchProps => {
     return {
         closeCrudModal: () => dispatch(CrudModalActions.closeModal()),
+        onRowDataChange: (name:string,value:any) => dispatch(CrudModalActions.onRowDataChange(name,value))
     };
 }
 

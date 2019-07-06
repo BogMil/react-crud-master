@@ -3,6 +3,7 @@ import '../contexMenu.css';
 import '../reactable/reactable.css';
 import { ColModel } from "../../types/ColModel";
 import { TableHeaderProps, TableHeaderState, TableHeaderOwnProps } from "./tableHeader.types";
+import './tableHeader.css';
 declare class TableHeaderComponent extends Component<TableHeaderProps, TableHeaderState> {
     constructor(props: TableHeaderProps);
     componentDidMount: () => void;

@@ -4,6 +4,7 @@ export declare const CrudModalActionTypeNames: {
     CLOSE_MODAL: string;
     OPEN_MODAL: string;
     GENERATE_COL_NAME_PROPERTIES_IN_ROW_DATA: string;
+    ON_ROW_DATA_CHANGE: string;
 };
 export interface CloseModalRetType extends IReduxAction {
     type: typeof CrudModalActionTypeNames.CLOSE_MODAL;
@@ -19,7 +20,14 @@ export interface GenerateColNamePropertiesInRowDataRetType extends IReduxAction 
         colModels: ColModel[];
     };
 }
-export declare type CrudModalActionType = CloseModalRetType | OpenModalRetType | GenerateColNamePropertiesInRowDataRetType;
+export interface OnRowDataChangeRetType extends IReduxAction {
+    type: typeof CrudModalActionTypeNames.ON_ROW_DATA_CHANGE;
+    payload: {
+        name: string;
+        value: any;
+    };
+}
+export declare type CrudModalActionType = CloseModalRetType | OpenModalRetType | GenerateColNamePropertiesInRowDataRetType | OnRowDataChangeRetType;
 export interface CrudModalState {
 }
 export declare const initialState: () => CrudModalState;
@@ -37,6 +45,7 @@ export interface CrudModalStateProps {
 }
 export interface CrudModalDispatchProps {
     closeCrudModal: () => void;
+    onRowDataChange: (name: string, value: any) => void;
 }
 export declare type CrudModalProps = CrudModalOwnProps & CrudModalStateProps & CrudModalDispatchProps;
 //# sourceMappingURL=crudModal.types.d.ts.map

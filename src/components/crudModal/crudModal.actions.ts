@@ -14,7 +14,6 @@ export function closeModal(): CrudModalActionType {
 }
 
 export function openModal(): CrudModalActionType {
-    console.log('opened modal')
     return {
         type: CrudModalActionTypeNames.OPEN_MODAL,
         payload:null,
@@ -28,6 +27,17 @@ export function generateColNamePropertiesInRowData(colModels:ColModel[]): Genera
         type: CrudModalActionTypeNames.GENERATE_COL_NAME_PROPERTIES_IN_ROW_DATA,
         payload:{
             colModels
+        },
+        namespace
+    }
+}
+
+export function onRowDataChange (name:string,value:any): CrudModalActionType {
+    return {
+        type: CrudModalActionTypeNames.ON_ROW_DATA_CHANGE,
+        payload:{
+            name,
+            value
         },
         namespace
     }

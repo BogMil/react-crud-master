@@ -56,6 +56,7 @@ export interface TableHeaderDispatchProps {
   setColumnToResize:(column?:ColModel | null,e?:any | null)=>void,
   resetTableoffsetWidth :()=>void,
   changeOrderDirection:(column:ColModel)=>void,
+  openColMenuModel:(colModel:ColModel) =>void,
 }
 
 export type TableHeaderProps = TableHeaderOwnProps & TableHeaderStateProps & TableHeaderDispatchProps;

@@ -15,8 +15,9 @@ import { rootReducer, AppState } from '../../rootReducer'
 import { any } from "prop-types";
 import { TableHeaderProps, TableHeaderState, initialState, TableHeaderOwnProps, TableHeaderDispatchProps, TableHeaderStateProps } from "./tableHeader.types";
 import * as ReactableActions from '../reactable/reactable.actions'
+import * as ColMenuModelActions from '../colMenuModal/colMenuModal.actions'
 import { ThunkDispatch } from "redux-thunk";
-
+import './tableHeader.css'
 
 class TableHeaderComponent extends Component<TableHeaderProps, TableHeaderState>{
     constructor(props: TableHeaderProps) {
@@ -30,73 +31,53 @@ class TableHeaderComponent extends Component<TableHeaderProps, TableHeaderState>
 
     render() {
         return (
-
-            <Table id="x" className="reactable-table" striped bordered hover size="sm"
-                style={{
-                    width: this.props.tableWidth,
-
-                }}
-            >
-                <thead style={{
-                    alignItems: 'center',
-                }}>
-                    <tr>
-                        {this.props.colModels.map((column) => {
-                            return (
-                                <th className="reactable-table-colum-header"
-                                    key={column.name}
-                                    style={{ width: column.width }}
-                                    id={column.name}
-                                >
-                                    <div className="column-header-content-holder" >
-                                        <div className="column-header-label"
-                                            onClick={() => this.onThClick(column)}
-                                        >
-                                            {column.orderDirection != "" && column.orderDirection}{" "}{column.label}
-                                        </div>
-                                        < div className="column-header-menu-holder"
-                                            style={{ zIndex: 10 }}
-                                        >
-                                            <Button
-                                                // onClick={() => this.openColMenuModel(column.name)}
-                                                size="sm"
-                                                className="border-radius-0"
-                                                style={{ marginRight: 5, padding: '1px 4px' }}>
-                                                <i style={{ padding: 0 }} className="fas fa-sliders-h"></i>
-                                            </Button>
-
-                                            <Modal
-                                                size="sm"
-                                                centered
-                                                show={column.showColMenuModal}
-                                                // onHide={() => this.closeColMenuModel(column.name)}
-                                            >
-                                                <Modal.Header closeButton>
-                                                    <Modal.Title id="contained-modal-title-vcenter">
-                                                        {column.name}
-                                                    </Modal.Title>
-                                                </Modal.Header>
-                                                <Modal.Body>
-                                                    <div>width: {column.width}</div>
-                                                    <div>freeze</div>
-                                                    <div>group</div>
-                                                    <div>advanced column filter</div>
-                                                </Modal.Body>
-                                            </Modal>
-                                        </div>
-                                    </div>
-                                    <div className="column-header-resize-bar"
-                                        onDragStart={e => e.preventDefault()}
-                                        onMouseDown={e => this.setColumnToResize(e, column)}
+            <div className='rcm-header-table-holder' id='z' onScroll={()=>{
+                //fix for autoscroll after closing colMenuModal
+                var x = document.getElementById('z');
+                var q = document.getElementById('q');
+                q!.scrollLeft = x!.scrollLeft
+            }}>
+                <Table id="x" className="rcm-header-table" striped bordered hover size="sm"
+                    style={{ width: this.props.tableWidth }}
+                >
+                    <thead className='rcm-header-table-thead'>
+                        <tr>
+                            {this.props.colModels.map((column) => {
+                                return (
+                                    <th className="rcm-header-table-colum-header"
+                                        key={column.name}
+                                        style={{ width: column.width }}
+                                        id={column.name}
                                     >
-                                        &nbsp;
-                                                </div>
-                                </th>
-                            );
-                        })}
-                    </tr>
-                </thead>
-            </Table>
+                                        <div className="column-header-content-holder" >
+                                            <div className="column-header-label" onClick={() => this.onThClick(column)}>
+                                                {column.orderDirection != "" && column.orderDirection}{" "}{column.label}
+                                            </div>
+                                            < div className="column-header-menu-holder">
+                                                <Button
+                                                    onClick={()=>this.props.openColMenuModel(column)}
+                                                    size="sm"
+                                                    className="border-radius-0"
+                                                    style={{ marginRight: 5, padding: '1px 4px' }}
+                                                >
+                                                    <i style={{ padding: 0 }} className="fas fa-sliders-h"></i>
+                                                </Button>
+                                            </div>
+                                        </div>
+                                        <div className="column-header-resize-bar"
+                                            onDragStart={e => e.preventDefault()}
+                                            onMouseDown={e => this.setColumnToResize(e, column)}
+                                        >
+                                            &nbsp;
+                                        </div>
+                                    </th>
+                                );
+                            })}
+                        </tr>
+                    </thead>
+                </Table>
+            </div>
+
         );
     }
 
@@ -121,7 +102,8 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>, ownProps: Tabl
         resizeColumn: (e: MouseEvent) => dispatch(ReactableActions.resizeColumn(e)),
         setColumnToResize: (column: (ColModel | null) = null, e: (any | null) = null) => dispatch(ReactableActions.setColumnToResize(column, e)),
         resetTableoffsetWidth: () => dispatch(ReactableActions.resetTableoffsetWidth()),
-        changeOrderDirection: (column: ColModel) => dispatch(ReactableActions.changeOrderDirection(column))
+        changeOrderDirection: (column: ColModel) => dispatch(ReactableActions.changeOrderDirection(column)),
+        openColMenuModel:(colModel:ColModel) =>dispatch(ColMenuModelActions.openModal(colModel))
     };
 }
 

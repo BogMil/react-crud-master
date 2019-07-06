@@ -1,4 +1,4 @@
-import { ReactableActionTypeNames, ResizeColumnRetType, SetColModelsRetType, ReactableActionType } from './reactable.types'
+import { ReactableActionTypeNames, ReactableActionType } from './reactable.types'
 import { ColModel } from '../../types/ColModel';
 import { REACTABLE } from '../../actions/actionNamespaces';
 import cloneDeep from 'lodash/cloneDeep';
@@ -17,8 +17,6 @@ export function privateSetColModels(colModels: ColModel[]): ReactableActionType 
         colModel.showColMenuModal = false;
     });
 
-    
-
     return  {
         type: ReactableActionTypeNames.SET_COL_MODELS,
         payload: {
@@ -36,12 +34,19 @@ export const setColModels = (colModels:ColModel[]): ThunkAction<Promise<void>, {
     }
 }
 
+export function setData(data: any[]): ReactableActionType {
+    let clonedData = cloneDeep(data);
+    return {
+        type:ReactableActionTypeNames.SET_DATA,
+        payload:{data:clonedData},
+        namespace,
+    }
+}
+
 export function resizeColumn(e: MouseEvent): ReactableActionType {
     return {
         type:ReactableActionTypeNames.RESIZE_COLUMN,
-        payload:{
-            e,
-        },
+        payload:{e,},
         namespace,
     }
 }
@@ -70,8 +75,14 @@ export function changeOrderDirection(column : ColModel): ReactableActionType {
     return {
         type:ReactableActionTypeNames.CHANGE_ORDER_DIRECTION,
         namespace,
-        payload:{
-            column
-        }
+        payload:{column}
+    }
+}
+
+export function selectRow(row :any): ReactableActionType {
+    return {
+        type:ReactableActionTypeNames.SELECT_ROW,
+        namespace,
+        payload:{row}
     }
 }

@@ -9,6 +9,8 @@ declare class ReactCrudMaster extends Component<ReactCrudMasterProps> {
     store: import("redux").Store<{
         reactable: import("./components/reactable/reactable.types").ReactableStateProps;
         crudModal: import("./components/crudModal/crudModal.types").CrudModalStateProps;
+        colMenuModal: import("./components/colMenuModal/ColMenuModal.types").ColMenuModalStateProps;
+        contextMenuModal: import("./components/contextMenuModal/ContextMenuModal.types").ContextMenuModalStateProps;
     }, import("redux").AnyAction> & {
         dispatch: unknown;
     };

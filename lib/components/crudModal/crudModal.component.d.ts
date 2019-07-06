@@ -6,6 +6,7 @@ declare class CrudModalComponent extends Component<CrudModalProps, CrudModalStat
     constructor(props: CrudModalProps);
     componentDidMount: () => void;
     handleClose: () => void;
+    onRowDataChange: (name: string, value: any) => void;
     render(): JSX.Element;
 }
 declare const _default: import("react-redux").ConnectedComponentClass<typeof CrudModalComponent, Pick<CrudModalProps, never> & CrudModalOwnProps>;

@@ -37,6 +37,7 @@ export interface TableHeaderDispatchProps {
     setColumnToResize: (column?: ColModel | null, e?: any | null) => void;
     resetTableoffsetWidth: () => void;
     changeOrderDirection: (column: ColModel) => void;
+    openColMenuModel: (colModel: ColModel) => void;
 }
 export declare type TableHeaderProps = TableHeaderOwnProps & TableHeaderStateProps & TableHeaderDispatchProps;
 //# sourceMappingURL=tableHeader.types.d.ts.map

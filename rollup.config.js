@@ -3,12 +3,17 @@ import pkg from "./package.json";
 import { terser } from "rollup-plugin-terser";
 import commonjs from "rollup-plugin-commonjs";
 import nodeResolve from "rollup-plugin-node-resolve";
-import babel from 'rollup-plugin-babel';
 import css from "rollup-plugin-css-only";
 
 const globals = {
     'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
+    'redux':'redux',
+    'immutability-helper':'update',
+    'react-redux':'reactRedux',
+    'react-bootstrap':'reactBootstrap',
+    'react-contextmenu':'reactContextmenu',
+    'redux-thunk':'thunk'
 };
 
 export default {
@@ -17,25 +22,30 @@ export default {
     {
       file: "roll/index.js",
       format: "cjs",
-      globals: globals
+      globals: globals,
+      exports:'named',
     },
     {
       file: "roll/index-es.js",
       format: "es", // the preferred format
-      globals: globals
+      globals: globals,
+      exports:'named',
     },
     {
       file: "roll/index-iife.js",
       format: "iife",
       name: "textera", // the global which can be used in a browser
-      globals: globals
-    }
+      globals: globals,
+      exports:'named',
+    },
   ],
   external: [
     ...Object.keys((pkg.dependencies && pkg.devDependencies) || {}),
     "react",
     "react-dom"
   ],
+  context: 'null',
+  moduleContext:'null',
   plugins: [
     // babel(),
     nodeResolve({
@@ -60,7 +70,7 @@ export default {
           "isValidElementType",
           "isContextConsumer"
         ],
-        react: "node_modules/react"
+        react: "node_modules/react",
       },
 
       // search for files other than .js files (must already

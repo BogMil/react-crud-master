@@ -9,8 +9,11 @@ import {
     ResizeColumnRetType,
     SetColumnToResizeRetType,
     ChangeOrderDirectionRetType,
+    SelectRowRetType,
+    SetDataRetType,
 } from './reactable.types'
 import update from 'immutability-helper'
+import { REACTABLE } from '../../actions/actionNamespaces';
 export const initialState = {
     colModels: [],
     data: [],
@@ -30,9 +33,11 @@ export function reactableReducer(
     state: ReactableStateProps = initialReactableStateProps(),
     action: ReactableActionType
 ): ReactableStateProps {
-    switch (action.type) {
+    if (action.namespace != REACTABLE)
+        return state;
 
-        case ReactableActionTypeNames.SET_COL_MODELS:
+    switch (action.type) {
+        case ReactableActionTypeNames.SET_COL_MODELS: {
             action = <SetColModelsRetType>action
 
             return Object.assign({}, { ...state },
@@ -40,6 +45,16 @@ export function reactableReducer(
                     colModels: action.payload.colModels,
                     tableWidth: action.payload.tableWidth,
                 });
+        }
+
+        case ReactableActionTypeNames.SET_DATA: {
+            let typedAction = <SetDataRetType>action
+
+            return Object.assign({}, { ...state },
+                {
+                    data:typedAction.payload.data
+                });
+        }
 
         case ReactableActionTypeNames.RESIZE_COLUMN:
             action = <ResizeColumnRetType>action;
@@ -62,43 +77,45 @@ export function reactableReducer(
 
             return newState;
 
-        case ReactableActionTypeNames.SET_COLUMN_TO_RESIZE:
-            {
-                let typedAction = <SetColumnToResizeRetType>action;
-                let { column, e } = { ...typedAction.payload }
+        case ReactableActionTypeNames.SET_COLUMN_TO_RESIZE: {
+            let typedAction = <SetColumnToResizeRetType>action;
+            let { column, e } = { ...typedAction.payload }
 
-                if (column != null)
-                    return Object.assign({}, { ...state }, { columnToResize: column, startOffset: e.target.parentNode.offsetWidth - e.pageX })
-                return Object.assign({}, { ...state }, { columnToResize: null })
-            }
+            if (column != null)
+                return Object.assign({}, { ...state }, { columnToResize: column, startOffset: e.target.parentNode.offsetWidth - e.pageX })
+            return Object.assign({}, { ...state }, { columnToResize: null })
+        }
 
-        case ReactableActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH:
-            {
-                let tableBody = document.getElementById(`${state.reactableId}-reactable`)!;
-                return Object.assign({}, { ...state }, { width: tableBody.offsetWidth })
-            }
+        case ReactableActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH: {
+            let tableBody = document.getElementById(`${state.reactableId}-reactable`)!;
+            return Object.assign({}, { ...state }, { width: tableBody.offsetWidth })
+        }
 
-        case ReactableActionTypeNames.CHANGE_ORDER_DIRECTION:
-            {
-                let typedAction = <ChangeOrderDirectionRetType>action;
-                let colModels = state.colModels.map((column) => {
+        case ReactableActionTypeNames.SELECT_ROW: {
+            let typedAction = <SelectRowRetType>action;
+            return Object.assign({}, { ...state }, { selectedRow: typedAction.payload.row })
+        }
 
-                    if (column.name == typedAction.payload.column.name) {
+        case ReactableActionTypeNames.CHANGE_ORDER_DIRECTION: {
+            let typedAction = <ChangeOrderDirectionRetType>action;
+            let colModels = state.colModels.map((column) => {
 
-                        if (column.orderDirection === "asc")
-                            column.orderDirection = "desc";
-                        else if (column.orderDirection === "desc")
-                            column.orderDirection = "";
-                        else column.orderDirection = "asc";
-                    }else{
-                        column.orderDirection=""
-                    }
+                if (column.name == typedAction.payload.column.name) {
 
-                    return column;
-                });
-                
-                return Object.assign({}, { ...state }, { colModels: colModels })
-            }
+                    if (column.orderDirection === "asc")
+                        column.orderDirection = "desc";
+                    else if (column.orderDirection === "desc")
+                        column.orderDirection = "";
+                    else column.orderDirection = "asc";
+                } else {
+                    column.orderDirection = ""
+                }
+
+                return column;
+            });
+
+            return Object.assign({}, { ...state }, { colModels: colModels })
+        }
         default:
             return state
     }
