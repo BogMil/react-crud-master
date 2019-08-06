@@ -7,7 +7,7 @@ import css from "rollup-plugin-css-only";
 
 const globals = {
     'react': 'React',
-    'react-dom': 'ReactDOM',
+    // 'react-dom': 'ReactDOM',
     'redux':'redux',
     'immutability-helper':'update',
     'react-redux':'reactRedux',
@@ -56,7 +56,7 @@ export default {
       typescript: require("typescript"),
       rollupCommonJSResolveHack: false
     }),
-    css({ output: "bundle.css" }),
+    css({ output: "css/bundle.css" }),
     commonjs({
       // non-CommonJS modules will be ignored, but you can also
       // specifically include/exclude files

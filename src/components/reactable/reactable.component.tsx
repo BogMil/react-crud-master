@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
-    Card} from "react-bootstrap";
+    Card, Row, Col
+} from "react-bootstrap";
 import { ContextMenu, ContextMenuTrigger, MenuItem } from 'react-contextmenu'
 import '../contexMenu.css';
 import './reactable.css';
@@ -73,30 +74,32 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
     };
 
     render() {
-        // if (Array.isArray(this.props.colModels) === false)
-        //     throw Error("colModels must be array");
 
         return (
             <>
                 <Card id={`${this.props.reactableId}-reactable`} style={{ minWidth: 360, borderRadius: 0 }}>
                     <Card.Header style={{ padding: 5 }} as="h5" >Featured</Card.Header>
-                    <Card.Body id={`reactable-card-body-${this.props.reactableId}`} className="reactable-table-holder">
+                    <Card.Body style={{ padding: 0 }}>
 
-                        <TableHeader />
-                        <TableBody />
+                        <div id={`reactable-card-body-${this.props.reactableId}`} className="reactable-table-holder">
+                            <TableHeader />
+                            <TableBody />
+                        </div>
+
+                        <div style={{ paddingRight: 20, paddingLeft: 20, paddingTop: 10, paddingBottom: 10 }}>
+                            <TableFooter tableWidth={this.props.width} />
+                        </div>
                     </Card.Body>
-                    < Card.Footer >
-                        <TableFooter tableWidth={this.props.width} />
-                    </Card.Footer>
+
                 </Card>
 
                 <CrudModal />
                 <ColMenuModal />
-                <ContextMenuModal/>
+                <ContextMenuModal />
             </>
         );
     }
-    
+
 
 }
 

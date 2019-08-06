@@ -1,21 +1,14 @@
-import React, { Component, FormEvent, ChangeEvent } from "react";
+import React, { Component } from "react";
 import {
     Table,
-    Modal,
-    Button,
 } from "react-bootstrap";
 import '../contexMenu.css';
 import '../reactable/reactable.css';
 
-import { Provider, connect } from 'react-redux'
-import { createStore } from 'redux'
-import * as Redux from 'redux'
-import { ColModel } from "../../types/ColModel";
-import { rootReducer, AppState } from '../../rootReducer'
-import { any } from "prop-types";
+import { connect } from 'react-redux'
+import { AppState } from '../../rootReducer'
 import { TableBodyProps, TableBodyState, initialState, TableBodyOwnProps, TableBodyDispatchProps, TableBodyStateProps } from "./tableBody.types";
 import * as ReactableActions from '../reactable/reactable.actions'
-import * as ColMenuModelActions from '../colMenuModal/colMenuModal.actions'
 import { ThunkDispatch } from "redux-thunk";
 
 class TableBodyComponent extends Component<TableBodyProps, TableBodyState>{
@@ -93,13 +86,13 @@ class TableBodyComponent extends Component<TableBodyProps, TableBodyState>{
 
 
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>, ownProps: TableBodyOwnProps): TableBodyDispatchProps => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>): TableBodyDispatchProps => {
     return {
         selectRow:(row:any)=>dispatch(ReactableActions.selectRow(row))
     };
 }
 
-const mapStateToProps = (state: AppState, props: TableBodyOwnProps): TableBodyStateProps => {
+const mapStateToProps = (state: AppState): TableBodyStateProps => {
     return {
         colModels: state.reactable.colModels,
         data: state.reactable.data,

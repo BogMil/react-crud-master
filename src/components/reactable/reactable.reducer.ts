@@ -1,6 +1,4 @@
 import {
-    // ReactableState,
-    // ChatActions,
     ReactableActionType,
     ReactableActionTypeNames,
     ReactableStateProps,

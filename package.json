@@ -4,13 +4,15 @@
   "description": "",
   "main": "roll/index.js",
   "files": [
-    "roll"
+    "roll",
+    "css"
   ],
   "types": "roll/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "webpack": "webpack",
-    "rolBuild": "rollup -c && tsc"
+    "rolBuild": "rollup -c && tsc",
+    "test": "jest --watch"
   },
   "author": "",
   "license": "ISC",
@@ -25,18 +27,27 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
+    "@types/enzyme": "^3.10.2",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.15",
     "@types/lodash": "^4.14.134",
     "@types/react-redux": "^7.1.0",
     "@types/redux": "^3.6.0",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-jest": "^24.8.0",
     "css-loader": "^3.0.0",
     "dts-bundle": "^0.7.3",
     "dts-bundle-webpack": "^1.0.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "immutability-helper": "^3.0.1",
+    "jest": "^24.8.0",
     "lodash": "^4.17.11",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-contextmenu": "^2.11.0",
     "react-redux": "^7.1.0",
+    "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "rollup": "^1.16.2",
@@ -47,9 +58,13 @@
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.2",
     "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.2",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
