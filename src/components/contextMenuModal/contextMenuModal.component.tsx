@@ -3,7 +3,7 @@ import {
     Table,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactable.css';
 
 import { connect } from 'react-redux'
 import { AppState } from '../../rootReducer'
@@ -17,11 +17,11 @@ class ContextMenuModalComponent extends Component<ContextMenuModalProps, Context
     render() {
         return (
             <>
-                <ContextMenuTrigger id={`context_menu_${this.props.reactableId}`} ref={c => this.props.setContextMenuTriggerRef(c)}>
+                <ContextMenuTrigger id={`context_menu_${this.props.RCMID}`} ref={c => this.props.setContextMenuTriggerRef(c)}>
                     <span></span>
                 </ContextMenuTrigger>
 
-                <ContextMenu id={`context_menu_${this.props.reactableId}`}>
+                <ContextMenu id={`context_menu_${this.props.RCMID}`}>
 
                     <MenuItem>
                         <i className="fas fa-edit" /><span style={{ paddingLeft: 10 }}>Edit</span>
@@ -50,7 +50,7 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>): ContextMenuMo
 const mapStateToProps = (state: AppState): ContextMenuModalStateProps => {
     return {
         contextMenuTrigger:state.contextMenuModal.contextMenuTrigger,
-        reactableId:state.reactable.reactableId
+        RCMID:state.reactCrudMaster.RCMID
     } as ContextMenuModalStateProps;
 }
 

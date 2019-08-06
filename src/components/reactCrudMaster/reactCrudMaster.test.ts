@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
-import Reactable from './reactable.component';
+import ReactCrudMaster from './reactCrudMaster.component';
 
-describe('<Reactable/>',()=>{
+describe('<ReactCrudMaster/>',()=>{
     it('shoult render without problems',()=>{
         expect(true).toBeTruthy();
     })

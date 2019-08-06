@@ -41,7 +41,7 @@ export interface TableHeaderStateProps {
   startOffset: number | null;
   columnToResize: ColModel | null;
   show: boolean | null;
-  reactableId: number | null;
+  RCMID: number | null;
   modalState: any;
   emptyModalState: any;
 

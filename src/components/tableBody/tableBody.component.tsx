@@ -3,12 +3,12 @@ import {
     Table,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactable.css';
 
 import { connect } from 'react-redux'
 import { AppState } from '../../rootReducer'
 import { TableBodyProps, TableBodyState, initialState, TableBodyOwnProps, TableBodyDispatchProps, TableBodyStateProps } from "./tableBody.types";
-import * as ReactableActions from '../reactable/reactable.actions'
+import * as ReactableActions from '../reactCrudMaster/reactCrudMaster.actions'
 import { ThunkDispatch } from "redux-thunk";
 
 class TableBodyComponent extends Component<TableBodyProps, TableBodyState>{
@@ -94,13 +94,13 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>): TableBodyDisp
 
 const mapStateToProps = (state: AppState): TableBodyStateProps => {
     return {
-        colModels: state.reactable.colModels,
-        data: state.reactable.data,
-        tableWidth: state.reactable.tableWidth,
-        columnToResize: state.reactable.columnToResize,
-        reactableId: state.reactable.reactableId,
-        width: state.reactable.width,
-        selectedRow:state.reactable.selectedRow,
+        colModels: state.reactCrudMaster.colModels,
+        data: state.reactCrudMaster.data,
+        tableWidth: state.reactCrudMaster.tableWidth,
+        columnToResize: state.reactCrudMaster.columnToResize,
+        RCMID: state.reactCrudMaster.RCMID,
+        width: state.reactCrudMaster.width,
+        selectedRow:state.reactCrudMaster.selectedRow,
         contextTrigger:state.contextMenuModal.contextMenuTrigger
     } as TableBodyStateProps;
 }

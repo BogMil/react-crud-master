@@ -3,7 +3,7 @@ import { IReduxAction } from "../../types/IReduxAction";
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
 
-export const ReactableActionTypeNames = {
+export const ReactCrudMasterActionTypeNames = {
   SET_COL_MODELS: "SET_COL_MODELS",
   RESIZE_COLUMN:"RESIZE_COLUMN",
   SET_COLUMN_TO_RESIZE:"SET_COLUMN_TO_RESIZE",
@@ -14,7 +14,7 @@ export const ReactableActionTypeNames = {
 }
 
 export interface SetColModelsRetType extends IReduxAction {
-  type: typeof ReactableActionTypeNames.SET_COL_MODELS
+  type: typeof ReactCrudMasterActionTypeNames.SET_COL_MODELS
   payload: {
     colModels: ColModel[],
     tableWidth: number
@@ -22,7 +22,7 @@ export interface SetColModelsRetType extends IReduxAction {
 }
 
 export interface SetDataRetType extends IReduxAction {
-  type: typeof ReactableActionTypeNames.SET_DATA
+  type: typeof ReactCrudMasterActionTypeNames.SET_DATA
   payload: {
     data: any[],
   },
@@ -30,14 +30,14 @@ export interface SetDataRetType extends IReduxAction {
 
 
 export interface ResizeColumnRetType extends IReduxAction {
-  type: typeof ReactableActionTypeNames.RESIZE_COLUMN
+  type: typeof ReactCrudMasterActionTypeNames.RESIZE_COLUMN
   payload:{
     e: MouseEvent,
   }
 }
 
 export interface SetColumnToResizeRetType extends IReduxAction {
-  type: typeof ReactableActionTypeNames.RESIZE_COLUMN
+  type: typeof ReactCrudMasterActionTypeNames.RESIZE_COLUMN
   payload:{
     e: any | null,
     column:ColModel | null,
@@ -45,27 +45,27 @@ export interface SetColumnToResizeRetType extends IReduxAction {
 }
 
 export interface ResetTableoffsetWidthRetType extends IReduxAction {
-  type: typeof ReactableActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH
+  type: typeof ReactCrudMasterActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH
 }
 
 export interface ChangeOrderDirectionRetType extends IReduxAction {
-  type: typeof ReactableActionTypeNames.CHANGE_ORDER_DIRECTION
+  type: typeof ReactCrudMasterActionTypeNames.CHANGE_ORDER_DIRECTION
   payload: {
     column:ColModel
   },
 }
 
 export interface SelectRowRetType extends IReduxAction {
-  type: typeof ReactableActionTypeNames.SELECT_ROW
+  type: typeof ReactCrudMasterActionTypeNames.SELECT_ROW
   payload: {
     row:any
   },
 }
 
-export type ReactableActionType = SetColModelsRetType | ResizeColumnRetType | SetColumnToResizeRetType | ResetTableoffsetWidthRetType | ChangeOrderDirectionRetType | SelectRowRetType | 
+export type ReactCrudMasterActionType = SetColModelsRetType | ResizeColumnRetType | SetColumnToResizeRetType | ResetTableoffsetWidthRetType | ChangeOrderDirectionRetType | SelectRowRetType | 
 SetDataRetType
 
-export interface ReactableState {
+export interface ReactCrudMasterState {
   colModels: ColModel[];
   data: any[];
   width: number;
@@ -74,7 +74,7 @@ export interface ReactableState {
   startOffset: number;
   columnToResize: ColModel | null;
   show: boolean;
-  reactableId: number;
+  RCMID: number;
   modalState: any;
   emptyModalState: any;
   tableWidth: number;
@@ -90,19 +90,19 @@ export const initialState = () => {
     startOffset: 0,
     columnToResize: null,
     show: false,
-    reactableId: Date.now(),
+    RCMID: Date.now(),
     modalState: null,
     tableWidth: 0,
     emptyModalState: null
-  } as ReactableState
+  } as ReactCrudMasterState
 }
 
-export interface ReactableOwnProps {
+export interface ReactCrudMasterOwnProps {
   colModelsProp: ColModel[];
   dataProp: any[];
 }
 
-export const initialReactableStateProps = () => {
+export const initialReactCrudMasterStateProps = () => {
   return {
     colModels: [],
     data: [],
@@ -112,14 +112,14 @@ export const initialReactableStateProps = () => {
     startOffset: null,
     columnToResize: null,
     show: null,
-    reactableId: Date.now(),
+    RCMID: Date.now(),
     modalState: null,
     emptyModalState: null,
     tableWidth: 0
   }
 };
 
-export interface ReactableStateProps {
+export interface ReactCrudMasterStateProps {
   colModels: ColModel[];
   data: any[];
   width: number ;
@@ -128,13 +128,13 @@ export interface ReactableStateProps {
   startOffset: number | null;
   columnToResize: ColModel | null;
   show: boolean | null;
-  reactableId: number | null;
+  RCMID: number | null;
   modalState: any;
   emptyModalState: any;
   tableWidth: number;
 }
 
-export interface ReactableDispatchProps {
+export interface ReactCrudMasterDispatchProps {
   setColModels: (colModels: ColModel[]) => ThunkAction<Promise<void>, {}, {}, AnyAction>,
   setData:(data:any[])=>void,
   resizeColumn: (e: MouseEvent) => void,
@@ -142,5 +142,5 @@ export interface ReactableDispatchProps {
   resetTableoffsetWidth :()=>void,
 }
 
-export type ReactableProps = ReactableOwnProps & ReactableStateProps & ReactableDispatchProps;
+export type ReactCrudMasterProps = ReactCrudMasterOwnProps & ReactCrudMasterStateProps & ReactCrudMasterDispatchProps;
 

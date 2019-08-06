@@ -5,7 +5,7 @@ import {
     Button,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'
@@ -14,7 +14,7 @@ import { ColModel } from "../../types/ColModel";
 import { rootReducer, AppState } from '../../rootReducer'
 import { any } from "prop-types";
 import { TableHeaderProps, TableHeaderState, initialState, TableHeaderOwnProps, TableHeaderDispatchProps, TableHeaderStateProps } from "./tableHeader.types";
-import * as ReactableActions from '../reactable/reactable.actions'
+import * as ReactCrudMasterActions from '../reactCrudMaster/reactCrudMaster.actions'
 import * as ColMenuModelActions from '../colMenuModal/colMenuModal.actions'
 import { ThunkDispatch } from "redux-thunk";
 import './tableHeader.css'
@@ -98,23 +98,23 @@ class TableHeaderComponent extends Component<TableHeaderProps, TableHeaderState>
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>, ownProps: TableHeaderOwnProps): TableHeaderDispatchProps => {
     return {
-        setColModels: (colModels: ColModel[]) => dispatch(ReactableActions.setColModels(colModels)),
-        resizeColumn: (e: MouseEvent) => dispatch(ReactableActions.resizeColumn(e)),
-        setColumnToResize: (column: (ColModel | null) = null, e: (any | null) = null) => dispatch(ReactableActions.setColumnToResize(column, e)),
-        resetTableoffsetWidth: () => dispatch(ReactableActions.resetTableoffsetWidth()),
-        changeOrderDirection: (column: ColModel) => dispatch(ReactableActions.changeOrderDirection(column)),
+        setColModels: (colModels: ColModel[]) => dispatch(ReactCrudMasterActions.setColModels(colModels)),
+        resizeColumn: (e: MouseEvent) => dispatch(ReactCrudMasterActions.resizeColumn(e)),
+        setColumnToResize: (column: (ColModel | null) = null, e: (any | null) = null) => dispatch(ReactCrudMasterActions.setColumnToResize(column, e)),
+        resetTableoffsetWidth: () => dispatch(ReactCrudMasterActions.resetTableoffsetWidth()),
+        changeOrderDirection: (column: ColModel) => dispatch(ReactCrudMasterActions.changeOrderDirection(column)),
         openColMenuModel:(colModel:ColModel) =>dispatch(ColMenuModelActions.openModal(colModel))
     };
 }
 
 const mapStateToProps = (state: AppState, props: TableHeaderOwnProps): TableHeaderStateProps => {
     return {
-        colModels: state.reactable.colModels,
-        data: state.reactable.data,
-        tableWidth: state.reactable.tableWidth,
-        columnToResize: state.reactable.columnToResize,
-        reactableId: state.reactable.reactableId,
-        width: state.reactable.width
+        colModels: state.reactCrudMaster.colModels,
+        data: state.reactCrudMaster.data,
+        tableWidth: state.reactCrudMaster.tableWidth,
+        columnToResize: state.reactCrudMaster.columnToResize,
+        RCMID: state.reactCrudMaster.RCMID,
+        width: state.reactCrudMaster.width
     } as TableHeaderStateProps;
 }
 

@@ -5,7 +5,7 @@ import {
     Button,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactable.css';
 
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'

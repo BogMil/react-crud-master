@@ -1,17 +1,17 @@
 import {
-    ReactableActionType,
-    ReactableActionTypeNames,
-    ReactableStateProps,
-    initialReactableStateProps,
+    ReactCrudMasterActionType,
+    ReactCrudMasterActionTypeNames,
+    ReactCrudMasterStateProps,
+    initialReactCrudMasterStateProps,
     SetColModelsRetType,
     ResizeColumnRetType,
     SetColumnToResizeRetType,
     ChangeOrderDirectionRetType,
     SelectRowRetType,
     SetDataRetType,
-} from './reactable.types'
+} from './reactCrudMaster.types'
 import update from 'immutability-helper'
-import { REACTABLE } from '../../actions/actionNamespaces';
+import { REACT_CRUD_MASTER } from '../../actions/actionNamespaces';
 export const initialState = {
     colModels: [],
     data: [],
@@ -21,21 +21,21 @@ export const initialState = {
     startOffset: 0,
     columnToResize: null,
     show: false,
-    reactableId: Date.now(),
+    RCMID: Date.now(),
     modalState: null,
     tableWidth: 0,
     emptyModalState: null
 }
 
-export function reactableReducer(
-    state: ReactableStateProps = initialReactableStateProps(),
-    action: ReactableActionType
-): ReactableStateProps {
-    if (action.namespace != REACTABLE)
+export function reactCrudMasterReducer(
+    state: ReactCrudMasterStateProps = initialReactCrudMasterStateProps(),
+    action: ReactCrudMasterActionType
+): ReactCrudMasterStateProps {
+    if (action.namespace != REACT_CRUD_MASTER)
         return state;
 
     switch (action.type) {
-        case ReactableActionTypeNames.SET_COL_MODELS: {
+        case ReactCrudMasterActionTypeNames.SET_COL_MODELS: {
             action = <SetColModelsRetType>action
 
             return Object.assign({}, { ...state },
@@ -45,7 +45,7 @@ export function reactableReducer(
                 });
         }
 
-        case ReactableActionTypeNames.SET_DATA: {
+        case ReactCrudMasterActionTypeNames.SET_DATA: {
             let typedAction = <SetDataRetType>action
 
             return Object.assign({}, { ...state },
@@ -54,7 +54,7 @@ export function reactableReducer(
                 });
         }
 
-        case ReactableActionTypeNames.RESIZE_COLUMN:
+        case ReactCrudMasterActionTypeNames.RESIZE_COLUMN:
             action = <ResizeColumnRetType>action;
 
             let pageX = action.payload.e.pageX
@@ -75,7 +75,7 @@ export function reactableReducer(
 
             return newState;
 
-        case ReactableActionTypeNames.SET_COLUMN_TO_RESIZE: {
+        case ReactCrudMasterActionTypeNames.SET_COLUMN_TO_RESIZE: {
             let typedAction = <SetColumnToResizeRetType>action;
             let { column, e } = { ...typedAction.payload }
 
@@ -84,17 +84,17 @@ export function reactableReducer(
             return Object.assign({}, { ...state }, { columnToResize: null })
         }
 
-        case ReactableActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH: {
-            let tableBody = document.getElementById(`${state.reactableId}-reactable`)!;
+        case ReactCrudMasterActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH: {
+            let tableBody = document.getElementById(`CMID-${state.RCMID}`)!;
             return Object.assign({}, { ...state }, { width: tableBody.offsetWidth })
         }
 
-        case ReactableActionTypeNames.SELECT_ROW: {
+        case ReactCrudMasterActionTypeNames.SELECT_ROW: {
             let typedAction = <SelectRowRetType>action;
             return Object.assign({}, { ...state }, { selectedRow: typedAction.payload.row })
         }
 
-        case ReactableActionTypeNames.CHANGE_ORDER_DIRECTION: {
+        case ReactCrudMasterActionTypeNames.CHANGE_ORDER_DIRECTION: {
             let typedAction = <ChangeOrderDirectionRetType>action;
             let colModels = state.colModels.map((column) => {
 

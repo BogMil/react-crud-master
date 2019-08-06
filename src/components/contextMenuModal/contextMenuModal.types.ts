@@ -30,13 +30,13 @@ export interface ContextMenuModalOwnProps {
 export const initialContextMenuModalStateProps = () => {
   return {
       contextMenuTrigger:null,
-      reactableId:Date.now()
+      RCMID:Date.now()
   }
 };
 
 export interface ContextMenuModalStateProps {
   contextMenuTrigger : any;
-  reactableId:number
+  RCMID:number
 }
 
 export interface ContextMenuModalDispatchProps {

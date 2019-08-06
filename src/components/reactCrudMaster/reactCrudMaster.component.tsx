@@ -4,14 +4,14 @@ import {
 } from "react-bootstrap";
 import { ContextMenu, ContextMenuTrigger, MenuItem } from 'react-contextmenu'
 import '../contexMenu.css';
-import './reactable.css';
+import './reactCrudMaster.css';
 
 import TableFooter from "../tableFooter/tableFooter.component"
 import { connect } from 'react-redux'
-import { ReactableProps, ReactableState, initialState, ReactableStateProps, ReactableDispatchProps, ReactableOwnProps } from "./reactable.types";
+import { ReactCrudMasterProps, ReactCrudMasterState, initialState, ReactCrudMasterStateProps, ReactCrudMasterDispatchProps, ReactCrudMasterOwnProps } from "./reactCrudMaster.types";
 import { ColModel } from "../../types/ColModel";
 import { AppState } from '../../rootReducer'
-import * as ReactableActions from './reactable.actions'
+import * as ReactCrudMasterActions from './reactCrudMaster.actions'
 import TableHeader from '../tableHeader/tableHeader.component'
 import TableBody from '../tableBody/tableBody.component'
 import CrudModal from '../crudModal/crudModal.component'
@@ -20,8 +20,8 @@ import ContextMenuModal from '../contextMenuModal/contextMenuModal.component'
 
 import { ThunkDispatch } from "redux-thunk";
 
-class ReactableComponent extends Component<ReactableProps, ReactableState>{
-    constructor(props: ReactableProps) {
+class ReactCrudMasterComponent extends Component<ReactCrudMasterProps, ReactCrudMasterState>{
+    constructor(props: ReactCrudMasterProps) {
         super(props);
         this.state = initialState();
     }
@@ -32,11 +32,11 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
         this.props.setData(this.props.dataProp);
         this.props.resetTableoffsetWidth();
 
-        document.getElementById(`${this.props.reactableId}-reactable`)!.addEventListener("mouseup", () => {
+        document.getElementById(`CMID-${this.props.RCMID}`)!.addEventListener("mouseup", () => {
             this.disableResizingColumnIfInResizeMode()
         });
 
-        document.getElementById(`${this.props.reactableId}-reactable`)!.addEventListener("mousemove", (e: MouseEvent) => {
+        document.getElementById(`CMID-${this.props.RCMID}`)!.addEventListener("mousemove", (e: MouseEvent) => {
             this.resizeColumnIfInResizeMode(e);
         });
     };
@@ -49,11 +49,15 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
         window.removeEventListener("resize", this.handleWindowSizeChange);
     };
 
+    handleWindowSizeChange = () => {
+        this.props.resetTableoffsetWidth();
+    };
+
     disableResizingColumnIfInResizeMode = () => {
         if (this.props.columnToResize == null)
             return;
 
-        this.props.setColumnToResize()
+        this.props.setColumnToResize();
         this.enableTextSelectionOnPage();
     }
 
@@ -69,19 +73,17 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
         document.body.style.userSelect = "";
     }
 
-    handleWindowSizeChange = () => {
-        this.props.resetTableoffsetWidth();
-    };
-
     render() {
 
         return (
             <>
-                <Card id={`${this.props.reactableId}-reactable`} style={{ minWidth: 360, borderRadius: 0 }}>
-                    <Card.Header style={{ padding: 5 }} as="h5" >Featured</Card.Header>
+                <Card id={`CMID-${this.props.RCMID}`}
+                    style={{ minWidth: 360, borderRadius: 0 }}
+                >
+                    <Card.Header style={{ padding: 5 }} as="h5" >Table Title</Card.Header>
                     <Card.Body style={{ padding: 0 }}>
 
-                        <div id={`reactable-card-body-${this.props.reactableId}`} className="reactable-table-holder">
+                        <div id={`reactable-card-body-${this.props.RCMID}`} className="reactable-table-holder">
                             <TableHeader />
                             <TableBody />
                         </div>
@@ -103,22 +105,27 @@ class ReactableComponent extends Component<ReactableProps, ReactableState>{
 
 }
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>): ReactableDispatchProps => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>): ReactCrudMasterDispatchProps => {
     return {
-        setColModels: (colModels: ColModel[]) => dispatch(ReactableActions.setColModels(colModels)),
-        setData: (data: any[]) => dispatch(ReactableActions.setData(data)),
-        resizeColumn: (e: MouseEvent) => dispatch(ReactableActions.resizeColumn(e)),
-        setColumnToResize: (column: (ColModel | null) = null, e: (any | null) = null) => dispatch(ReactableActions.setColumnToResize(column, e)),
-        resetTableoffsetWidth: () => dispatch(ReactableActions.resetTableoffsetWidth()),
+        setColModels: (colModels: ColModel[]) => dispatch(ReactCrudMasterActions.setColModels(colModels)),
+        setData: (data: any[]) => dispatch(ReactCrudMasterActions.setData(data)),
+        resizeColumn: (e: MouseEvent) => dispatch(ReactCrudMasterActions.resizeColumn(e)),
+        setColumnToResize: (column: (ColModel | null) = null, e: (any | null) = null) => dispatch(ReactCrudMasterActions.setColumnToResize(column, e)),
+        resetTableoffsetWidth: () => dispatch(ReactCrudMasterActions.resetTableoffsetWidth()),
     };
 }
 
-const mapStateToProps = (state: AppState): ReactableStateProps => {
+const mapStateToProps = (state: AppState): ReactCrudMasterStateProps => {
     return {
-        columnToResize: state.reactable.columnToResize,
-        reactableId: state.reactable.reactableId,
-        width: state.reactable.width,
-    } as ReactableStateProps;
+        columnToResize: state.reactCrudMaster.columnToResize,
+        RCMID: state.reactCrudMaster.RCMID,
+        width: state.reactCrudMaster.width,
+    } as ReactCrudMasterStateProps;
 }
 
-export default connect<ReactableStateProps, ReactableDispatchProps, ReactableOwnProps, AppState>(mapStateToProps, mapDispatchToProps)(ReactableComponent);
+export default connect<
+    ReactCrudMasterStateProps,
+    ReactCrudMasterDispatchProps,
+    ReactCrudMasterOwnProps,
+    AppState
+>(mapStateToProps, mapDispatchToProps)(ReactCrudMasterComponent);

@@ -6,7 +6,7 @@ import {
     Form,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactable.css';
 
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'
@@ -14,7 +14,7 @@ import * as Redux from 'redux'
 import { ColModel } from "../../types/ColModel";
 import { rootReducer, AppState } from '../../rootReducer'
 import { any } from "prop-types";
-import * as ReactableActions from '../reactable/reactable.actions'
+import * as ReactableActions from '../reactCrudMaster/reactCrudMaster.actions'
 import * as CrudModalActions from '../crudModal/crudModal.actions'
 import { CrudModalOwnProps, CrudModalDispatchProps, CrudModalStateProps, CrudModalState, CrudModalProps, initialState } from "./CrudModal.types";
 
@@ -98,7 +98,7 @@ const mapDispatchToProps = (dispatch: Redux.Dispatch<Redux.AnyAction>, ownProps:
 const mapStateToProps = (state: AppState, props: CrudModalOwnProps): CrudModalStateProps => {
     return {
         show: state.crudModal.show,
-        colModels: state.reactable.colModels,
+        colModels: state.reactCrudMaster.colModels,
         rowData: state.crudModal.rowData
     } as CrudModalStateProps;
 }

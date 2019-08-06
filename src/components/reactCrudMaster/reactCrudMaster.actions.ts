@@ -1,14 +1,14 @@
-import { ReactableActionTypeNames, ReactableActionType } from './reactable.types'
+import { ReactCrudMasterActionTypeNames, ReactCrudMasterActionType } from './reactCrudMaster.types'
 import { ColModel } from '../../types/ColModel';
-import { REACTABLE } from '../../actions/actionNamespaces';
+import { REACT_CRUD_MASTER } from '../../actions/actionNamespaces';
 import cloneDeep from 'lodash/cloneDeep';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import * as CrudModalActions from '../crudModal/crudModal.actions'
 
-const namespace = REACTABLE;
+const namespace = REACT_CRUD_MASTER;
 
-export function privateSetColModels(colModels: ColModel[]): ReactableActionType {
+export function privateSetColModels(colModels: ColModel[]): ReactCrudMasterActionType {
     let clonedColModels = cloneDeep(colModels);
 
     let tableWidth: number = 0;
@@ -18,7 +18,7 @@ export function privateSetColModels(colModels: ColModel[]): ReactableActionType 
     });
 
     return  {
-        type: ReactableActionTypeNames.SET_COL_MODELS,
+        type: ReactCrudMasterActionTypeNames.SET_COL_MODELS,
         payload: {
             colModels: clonedColModels,
             tableWidth
@@ -34,26 +34,26 @@ export const setColModels = (colModels:ColModel[]): ThunkAction<Promise<void>, {
     }
 }
 
-export function setData(data: any[]): ReactableActionType {
+export function setData(data: any[]): ReactCrudMasterActionType {
     let clonedData = cloneDeep(data);
     return {
-        type:ReactableActionTypeNames.SET_DATA,
+        type:ReactCrudMasterActionTypeNames.SET_DATA,
         payload:{data:clonedData},
         namespace,
     }
 }
 
-export function resizeColumn(e: MouseEvent): ReactableActionType {
+export function resizeColumn(e: MouseEvent): ReactCrudMasterActionType {
     return {
-        type:ReactableActionTypeNames.RESIZE_COLUMN,
+        type:ReactCrudMasterActionTypeNames.RESIZE_COLUMN,
         payload:{e,},
         namespace,
     }
 }
 
-export function setColumnToResize(column:(ColModel | null) = null,e: any =null): ReactableActionType {
+export function setColumnToResize(column:(ColModel | null) = null,e: any =null): ReactCrudMasterActionType {
     return {
-        type:ReactableActionTypeNames.SET_COLUMN_TO_RESIZE,
+        type:ReactCrudMasterActionTypeNames.SET_COLUMN_TO_RESIZE,
         payload:{
             e,
             column
@@ -62,26 +62,26 @@ export function setColumnToResize(column:(ColModel | null) = null,e: any =null):
     }
 }
 
-export function resetTableoffsetWidth(): ReactableActionType {
+export function resetTableoffsetWidth(): ReactCrudMasterActionType {
     return {
-        type:ReactableActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH,
+        type:ReactCrudMasterActionTypeNames.SET_INITIAL_TABLE_OFFSET_WIDTH,
         namespace,
         payload:null
     }
 }
 
 
-export function changeOrderDirection(column : ColModel): ReactableActionType {
+export function changeOrderDirection(column : ColModel): ReactCrudMasterActionType {
     return {
-        type:ReactableActionTypeNames.CHANGE_ORDER_DIRECTION,
+        type:ReactCrudMasterActionTypeNames.CHANGE_ORDER_DIRECTION,
         namespace,
         payload:{column}
     }
 }
 
-export function selectRow(row :any): ReactableActionType {
+export function selectRow(row :any): ReactCrudMasterActionType {
     return {
-        type:ReactableActionTypeNames.SELECT_ROW,
+        type:ReactCrudMasterActionTypeNames.SELECT_ROW,
         namespace,
         payload:{row}
     }
