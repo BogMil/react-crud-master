@@ -3,7 +3,7 @@ import {
     Table,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactCrudMaster/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 
 import { connect } from 'react-redux'
 import { AppState } from '../../rootReducer'
@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>): ContextMenuMo
 
 const mapStateToProps = (state: AppState): ContextMenuModalStateProps => {
     return {
-        contextMenuTrigger:state.contextMenuModal.contextMenuTrigger,
+        // contextMenuTrigger:state.contextMenuModal.contextMenuTrigger,
         RCMID:state.reactCrudMaster.RCMID
     } as ContextMenuModalStateProps;
 }

@@ -86,3 +86,11 @@ export function selectRow(row :any): ReactCrudMasterActionType {
         payload:{row}
     }
 }
+
+export function setTableTitle(tableTitle :any): ReactCrudMasterActionType {
+    return {
+        type:ReactCrudMasterActionTypeNames.SET_TABLE_TITLE,
+        namespace,
+        payload:{tableTitle}
+    }
+}

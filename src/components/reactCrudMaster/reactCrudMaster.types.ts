@@ -2,6 +2,7 @@ import { ColModel } from "../../types/ColModel";
 import { IReduxAction } from "../../types/IReduxAction";
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";
+import { setTableTitle } from "./reactCrudMaster.actions";
 
 export const ReactCrudMasterActionTypeNames = {
   SET_COL_MODELS: "SET_COL_MODELS",
@@ -10,7 +11,8 @@ export const ReactCrudMasterActionTypeNames = {
   SET_INITIAL_TABLE_OFFSET_WIDTH:'SET_INITIAL_TABLE_OFFSET_WIDTH',
   CHANGE_ORDER_DIRECTION : 'CHANGE_ORDER_DIRECTION',
   SELECT_ROW:'SELECT_ROW',
-  SET_DATA:'SET_DATA'
+  SET_DATA:'SET_DATA',
+  SET_TABLE_TITLE:'SET_TABLE_TITLE'
 }
 
 export interface SetColModelsRetType extends IReduxAction {
@@ -62,6 +64,13 @@ export interface SelectRowRetType extends IReduxAction {
   },
 }
 
+export interface SetTableTitleRetType extends IReduxAction {
+  type: typeof ReactCrudMasterActionTypeNames.SET_TABLE_TITLE
+  payload: {
+    tableTitle:string
+  },
+}
+
 export type ReactCrudMasterActionType = SetColModelsRetType | ResizeColumnRetType | SetColumnToResizeRetType | ResetTableoffsetWidthRetType | ChangeOrderDirectionRetType | SelectRowRetType | 
 SetDataRetType
 
@@ -93,13 +102,14 @@ export const initialState = () => {
     RCMID: Date.now(),
     modalState: null,
     tableWidth: 0,
-    emptyModalState: null
+    emptyModalState: null,
   } as ReactCrudMasterState
 }
 
 export interface ReactCrudMasterOwnProps {
   colModelsProp: ColModel[];
   dataProp: any[];
+  tableTitle?: string;
 }
 
 export const initialReactCrudMasterStateProps = () => {
@@ -115,8 +125,9 @@ export const initialReactCrudMasterStateProps = () => {
     RCMID: Date.now(),
     modalState: null,
     emptyModalState: null,
-    tableWidth: 0
-  }
+    tableWidth: 0,
+    tableTitleProp:'Table title'
+  } as ReactCrudMasterStateProps
 };
 
 export interface ReactCrudMasterStateProps {
@@ -132,6 +143,7 @@ export interface ReactCrudMasterStateProps {
   modalState: any;
   emptyModalState: any;
   tableWidth: number;
+  tableTitleProp:string;
 }
 
 export interface ReactCrudMasterDispatchProps {
@@ -140,6 +152,7 @@ export interface ReactCrudMasterDispatchProps {
   resizeColumn: (e: MouseEvent) => void,
   setColumnToResize:(column?:ColModel | null,e?:any | null)=>void,
   resetTableoffsetWidth :()=>void,
+  setTableTitle:(tableTitle:string)=>void
 }
 
 export type ReactCrudMasterProps = ReactCrudMasterOwnProps & ReactCrudMasterStateProps & ReactCrudMasterDispatchProps;

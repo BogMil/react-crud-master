@@ -16,7 +16,7 @@ import {
     InputGroup
 } from "react-bootstrap";
 
-import '../reactCrudMaster/reactable.css'
+import '../reactCrudMaster/reactCrudMaster.css'
 
 import update from 'immutability-helper'
 import { TableFooterOwnProps, TableFooterStateProps, TableFooterDispatchProps, TableFooterProps, TableFooterState } from "./tableFooter.types";

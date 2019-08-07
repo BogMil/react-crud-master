@@ -3,7 +3,7 @@ import {
     Table,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactCrudMaster/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 
 import { connect } from 'react-redux'
 import { AppState } from '../../rootReducer'

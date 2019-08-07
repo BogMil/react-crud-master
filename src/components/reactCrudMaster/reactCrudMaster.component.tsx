@@ -32,6 +32,9 @@ class ReactCrudMasterComponent extends Component<ReactCrudMasterProps, ReactCrud
         this.props.setData(this.props.dataProp);
         this.props.resetTableoffsetWidth();
 
+        if(this.props.tableTitle != null)
+            this.props.setTableTitle(this.props.tableTitle);        
+
         document.getElementById(`CMID-${this.props.RCMID}`)!.addEventListener("mouseup", () => {
             this.disableResizingColumnIfInResizeMode()
         });
@@ -80,9 +83,8 @@ class ReactCrudMasterComponent extends Component<ReactCrudMasterProps, ReactCrud
                 <Card id={`CMID-${this.props.RCMID}`}
                     style={{ minWidth: 360, borderRadius: 0 }}
                 >
-                    <Card.Header style={{ padding: 5 }} as="h5" >Table Title</Card.Header>
+                    <Card.Header className='cm-table-header' data-testid='cm-table-header' style={{ padding: 5 }} as="h5" >{this.props.tableTitleProp}</Card.Header>
                     <Card.Body style={{ padding: 0 }}>
-
                         <div id={`reactable-card-body-${this.props.RCMID}`} className="reactable-table-holder">
                             <TableHeader />
                             <TableBody />
@@ -112,6 +114,7 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>): ReactCrudMast
         resizeColumn: (e: MouseEvent) => dispatch(ReactCrudMasterActions.resizeColumn(e)),
         setColumnToResize: (column: (ColModel | null) = null, e: (any | null) = null) => dispatch(ReactCrudMasterActions.setColumnToResize(column, e)),
         resetTableoffsetWidth: () => dispatch(ReactCrudMasterActions.resetTableoffsetWidth()),
+        setTableTitle: (tableTitle:string) => dispatch(ReactCrudMasterActions.setTableTitle(tableTitle)),
     };
 }
 
@@ -120,6 +123,7 @@ const mapStateToProps = (state: AppState): ReactCrudMasterStateProps => {
         columnToResize: state.reactCrudMaster.columnToResize,
         RCMID: state.reactCrudMaster.RCMID,
         width: state.reactCrudMaster.width,
+        tableTitleProp:state.reactCrudMaster.tableTitleProp
     } as ReactCrudMasterStateProps;
 }
 

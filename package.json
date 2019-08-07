@@ -12,7 +12,7 @@
     "build": "tsc -p .",
     "webpack": "webpack",
     "rolBuild": "rollup -c && tsc",
-    "test": "jest --watch"
+    "test": "jest --watch --maxWorkers=1"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +27,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
+    "@testing-library/react": "^8.0.7",
     "@types/enzyme": "^3.10.2",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.15",
@@ -43,6 +44,7 @@
     "enzyme-to-json": "^3.3.5",
     "immutability-helper": "^3.0.1",
     "jest": "^24.8.0",
+    "jest-css-modules-transform": "^2.5.0",
     "lodash": "^4.17.11",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-contextmenu": "^2.11.0",

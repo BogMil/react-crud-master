@@ -6,7 +6,7 @@ import {
     Form,
 } from "react-bootstrap";
 import '../contexMenu.css';
-import '../reactCrudMaster/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'

@@ -9,6 +9,7 @@ import {
     ChangeOrderDirectionRetType,
     SelectRowRetType,
     SetDataRetType,
+    SetTableTitleRetType,
 } from './reactCrudMaster.types'
 import update from 'immutability-helper'
 import { REACT_CRUD_MASTER } from '../../actions/actionNamespaces';
@@ -113,6 +114,11 @@ export function reactCrudMasterReducer(
             });
 
             return Object.assign({}, { ...state }, { colModels: colModels })
+        }
+
+        case ReactCrudMasterActionTypeNames.SET_TABLE_TITLE: {
+            let typedAction = <SetTableTitleRetType>action;
+            return Object.assign({}, { ...state }, { tableTitleProp: typedAction.payload.tableTitle })
         }
         default:
             return state
