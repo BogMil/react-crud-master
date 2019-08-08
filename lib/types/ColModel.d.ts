@@ -3,9 +3,10 @@ export declare class ColModel {
     constructor(init?: Partial<ColModel>);
     private _minWidth;
     minWidth: number;
+    private _width;
+    width: number;
     name: string;
     label: string;
-    width: number;
     orderDirection: string;
     showColMenuModal: boolean;
     calculateMinWithOfColumnByLabel: (label: string) => number;

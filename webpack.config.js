@@ -4,13 +4,16 @@ const ROOT = __dirname;
 const DESTINATION = path.join(ROOT, "/dist");
 /** wepback resolve */
 const RESOLVE = {
-  extensions: [".tsx", ".ts", ".js", ".html"]
+  extensions: [".tsx", ".ts", ".js", ".html"],
+  alias: {          
+    'react': path.resolve(__dirname, './node_modules/react'),
+    'react-dom': path.resolve(__dirname, './node_modules/react-dom'),      
+  }
 };
 /** webpack plugins */
 const PLUGINS = [new DtsBundlePlugin()];
 const MODULE = {
   rules: [
-    // Scripts
     {
       test: /\.ts|\.tsx$/,
       exclude: [/node_modules/],
@@ -43,7 +46,22 @@ module.exports = {
   plugins: PLUGINS,
   devtool: "source-map",
   devServer: {},
-  output: OUTPUT
+  output: OUTPUT,
+  externals: {      
+    // Don't bundle react or react-dom      
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react',
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
+    },
+} 
 };
 
 function DtsBundlePlugin(){}

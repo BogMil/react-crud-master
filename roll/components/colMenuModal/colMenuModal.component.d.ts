@@ -1,6 +1,6 @@
 import { Component } from "react";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 import { ColMenuModalProps, ColMenuModalState, ColMenuModalOwnProps } from "./ColMenuModal.types";
 declare class ColMenuModalComponent extends Component<ColMenuModalProps, ColMenuModalState> {
     constructor(props: ColMenuModalProps);

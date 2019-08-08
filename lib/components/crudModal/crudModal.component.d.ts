@@ -1,6 +1,6 @@
 import { Component } from "react";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 import { CrudModalOwnProps, CrudModalState, CrudModalProps } from "./CrudModal.types";
 declare class CrudModalComponent extends Component<CrudModalProps, CrudModalState> {
     constructor(props: CrudModalProps);

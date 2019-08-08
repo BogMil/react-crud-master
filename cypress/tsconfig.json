@@ -1,0 +1,9 @@
+{
+    "extends": "../tsconfig.json",
+    "include": [
+      "integration/*.tsx",
+      "integration/*.ts",
+      "support/*.ts",
+      "../node_modules/cypress"
+    ]
+  }

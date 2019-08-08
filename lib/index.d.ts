@@ -7,7 +7,7 @@ interface ReactCrudMasterProps {
 declare class ReactCrudMaster extends Component<ReactCrudMasterProps> {
     constructor(props: ReactCrudMasterProps);
     store: import("redux").Store<{
-        reactable: import("./components/reactable/reactable.types").ReactableStateProps;
+        reactCrudMaster: import("./components/reactCrudMaster/reactCrudMaster.types").ReactCrudMasterStateProps;
         crudModal: import("./components/crudModal/crudModal.types").CrudModalStateProps;
         colMenuModal: import("./components/colMenuModal/ColMenuModal.types").ColMenuModalStateProps;
         contextMenuModal: import("./components/contextMenuModal/ContextMenuModal.types").ContextMenuModalStateProps;

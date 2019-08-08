@@ -1,5 +1,5 @@
 import { Component } from "react";
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 import { TableFooterOwnProps, TableFooterProps, TableFooterState } from "./tableFooter.types";
 declare class TableFooterComponent extends Component<TableFooterProps, TableFooterState> {
     constructor(props: TableFooterProps);

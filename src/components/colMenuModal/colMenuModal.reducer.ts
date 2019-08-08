@@ -1,6 +1,6 @@
-import { ColMenuModalStateProps, initialColMenuModalStateProps, ColMenuModalActionType, ColMenuModalActionTypeNames, OpenModalRetType } from './ColMenuModal.types'
+import { ColMenuModalStateProps, initialColMenuModalStateProps, ColMenuModalActionType, ColMenuModalActionTypeNames, OpenModalRetType } from './colMenuModal.types'
 import update from 'immutability-helper'
-import { ColModel } from '../../types/ColModel';
+import { ColModel } from '../../types/colModel';
 import { COL_MENU_MODAL } from '../../actions/actionNamespaces';
 
 export function ColMenuModalReducer(

@@ -11,12 +11,12 @@ import '../reactCrudMaster/reactCrudMaster.css';
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'
 import * as Redux from 'redux'
-import { ColModel } from "../../types/ColModel";
+import { ColModel } from "../../types/colModel";
 import { rootReducer, AppState } from '../../rootReducer'
 import { any } from "prop-types";
 import * as ReactableActions from '../reactCrudMaster/reactCrudMaster.actions'
 import * as CrudModalActions from '../crudModal/crudModal.actions'
-import { CrudModalOwnProps, CrudModalDispatchProps, CrudModalStateProps, CrudModalState, CrudModalProps, initialState } from "./CrudModal.types";
+import { CrudModalOwnProps, CrudModalDispatchProps, CrudModalStateProps, CrudModalState, CrudModalProps, initialState } from "./crudModal.types";
 
 
 class CrudModalComponent extends Component<CrudModalProps, CrudModalState>{

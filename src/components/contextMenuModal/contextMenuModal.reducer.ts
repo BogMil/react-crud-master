@@ -1,6 +1,6 @@
 import { ContextMenuModalStateProps, initialContextMenuModalStateProps, ContextMenuModalActionType, ContextMenuModalActionTypeNames ,SetContextMenuTriggerRefRetType} from './ContextMenuModal.types'
 import update from 'immutability-helper'
-import { ColModel } from '../../types/ColModel';
+import { ColModel } from '../../types/colModel';
 import { CONTEXT_MENU_MODAL } from '../../actions/actionNamespaces';
 
 export function ContextMenuModalReducer(

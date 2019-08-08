@@ -1,4 +1,4 @@
-import { ColModel } from '../../types/ColModel';
+import { ColModel } from '../../types/colModel';
 import { CRUD_MODAL } from '../../actions/actionNamespaces';
 import cloneDeep from 'lodash/cloneDeep';
 import { CrudModalActionType, CrudModalActionTypeNames, GenerateColNamePropertiesInRowDataRetType } from './crudModal.types';

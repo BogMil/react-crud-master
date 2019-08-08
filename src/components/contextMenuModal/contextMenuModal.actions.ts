@@ -1,5 +1,5 @@
 import { ContextMenuModalActionTypeNames, ContextMenuModalActionType } from './ContextMenuModal.types'
-import { ColModel } from '../../types/ColModel';
+import { ColModel } from '../../types/colModel';
 import { CONTEXT_MENU_MODAL } from '../../actions/actionNamespaces';
 import cloneDeep from 'lodash/cloneDeep';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';

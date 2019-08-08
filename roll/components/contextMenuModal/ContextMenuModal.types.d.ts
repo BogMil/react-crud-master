@@ -16,11 +16,11 @@ export interface ContextMenuModalOwnProps {
 }
 export declare const initialContextMenuModalStateProps: () => {
     contextMenuTrigger: null;
-    reactableId: number;
+    RCMID: number;
 };
 export interface ContextMenuModalStateProps {
     contextMenuTrigger: any;
-    reactableId: number;
+    RCMID: number;
 }
 export interface ContextMenuModalDispatchProps {
     setContextMenuTriggerRef: (ref: any) => void;

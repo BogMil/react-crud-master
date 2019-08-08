@@ -1,5 +1,5 @@
 import { ReactCrudMasterActionTypeNames, ReactCrudMasterActionType } from './reactCrudMaster.types'
-import { ColModel } from '../../types/ColModel';
+import { ColModel } from '../../types/colModel';
 import { REACT_CRUD_MASTER } from '../../actions/actionNamespaces';
 import cloneDeep from 'lodash/cloneDeep';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
@@ -13,7 +13,7 @@ export function privateSetColModels(colModels: ColModel[]): ReactCrudMasterActio
 
     let tableWidth: number = 0;
     clonedColModels.forEach((colModel: ColModel) => {
-        tableWidth += colModel.width;
+        tableWidth += getUsefullColModelWith(colModel);
         colModel.showColMenuModal = false;
     });
 
@@ -25,6 +25,12 @@ export function privateSetColModels(colModels: ColModel[]): ReactCrudMasterActio
         },
         namespace
     }
+}
+
+function getUsefullColModelWith(colModel:ColModel):number{
+    if(colModel.width!=null)
+        return colModel.width;
+    return 0;
 }
 
 export const setColModels = (colModels:ColModel[]): ThunkAction<Promise<void>, {}, {}, AnyAction> => {

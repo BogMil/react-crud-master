@@ -1,6 +1,6 @@
 import { Component } from "react";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 import { ContextMenuModalProps, ContextMenuModalState, ContextMenuModalOwnProps } from "./ContextMenuModal.types";
 declare class ContextMenuModalComponent extends Component<ContextMenuModalProps, ContextMenuModalState> {
     render(): JSX.Element;

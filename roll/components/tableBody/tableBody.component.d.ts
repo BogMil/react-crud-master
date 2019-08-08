@@ -1,6 +1,6 @@
 import { Component } from "react";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 import { TableBodyProps, TableBodyState, TableBodyOwnProps } from "./tableBody.types";
 declare class TableBodyComponent extends Component<TableBodyProps, TableBodyState> {
     constructor(props: TableBodyProps);

@@ -1,4 +1,4 @@
-import { ColModel } from "../../types/ColModel";
+import { ColModel } from "../../types/colModel";
 import { IReduxAction } from "../../types/IReduxAction";
 import { AnyAction } from "redux";
 import { ThunkAction } from "redux-thunk";

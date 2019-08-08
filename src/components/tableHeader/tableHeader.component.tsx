@@ -10,7 +10,7 @@ import '../reactCrudMaster/reactCrudMaster.css';
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'
 import * as Redux from 'redux'
-import { ColModel } from "../../types/ColModel";
+import { ColModel } from "../../types/colModel";
 import { rootReducer, AppState } from '../../rootReducer'
 import { any } from "prop-types";
 import { TableHeaderProps, TableHeaderState, initialState, TableHeaderOwnProps, TableHeaderDispatchProps, TableHeaderStateProps } from "./tableHeader.types";

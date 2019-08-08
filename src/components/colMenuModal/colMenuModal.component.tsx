@@ -10,10 +10,10 @@ import '../reactCrudMaster/reactCrudMaster.css';
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'
 import * as Redux from 'redux'
-import { ColModel } from "../../types/ColModel";
+import { ColModel } from "../../types/colModel";
 import { rootReducer, AppState } from '../../rootReducer'
 import { any } from "prop-types";
-import { ColMenuModalProps, ColMenuModalState, initialState, ColMenuModalOwnProps, ColMenuModalDispatchProps, ColMenuModalStateProps } from "./ColMenuModal.types";
+import { ColMenuModalProps, ColMenuModalState, initialState, ColMenuModalOwnProps, ColMenuModalDispatchProps, ColMenuModalStateProps } from "./colMenuModal.types";
 import * as ColMenuModalActions from './colMenuModal.actions'
 import { ThunkDispatch } from "redux-thunk";
 

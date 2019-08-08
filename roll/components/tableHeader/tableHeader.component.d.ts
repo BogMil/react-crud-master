@@ -1,6 +1,6 @@
 import { Component } from "react";
 import '../contexMenu.css';
-import '../reactable/reactable.css';
+import '../reactCrudMaster/reactCrudMaster.css';
 import { ColModel } from "../../types/ColModel";
 import { TableHeaderProps, TableHeaderState, TableHeaderOwnProps } from "./tableHeader.types";
 import './tableHeader.css';

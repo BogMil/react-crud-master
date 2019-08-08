@@ -1,6 +1,6 @@
 import { CrudModalStateProps, initialCrudModalStateProps, CrudModalActionType, CrudModalActionTypeNames, CloseModalRetType, GenerateColNamePropertiesInRowDataRetType, IRowData, OnRowDataChangeRetType } from './crudModal.types'
 import update from 'immutability-helper'
-import { ColModel } from '../../types/ColModel';
+import { ColModel } from '../../types/colModel';
 import { CRUD_MODAL } from '../../actions/actionNamespaces';
 export const initialState = {
     colModels: [],

@@ -9,7 +9,7 @@ import './reactCrudMaster.css';
 import TableFooter from "../tableFooter/tableFooter.component"
 import { connect } from 'react-redux'
 import { ReactCrudMasterProps, ReactCrudMasterState, initialState, ReactCrudMasterStateProps, ReactCrudMasterDispatchProps, ReactCrudMasterOwnProps } from "./reactCrudMaster.types";
-import { ColModel } from "../../types/ColModel";
+import { ColModel } from "../../types/colModel";
 import { AppState } from '../../rootReducer'
 import * as ReactCrudMasterActions from './reactCrudMaster.actions'
 import TableHeader from '../tableHeader/tableHeader.component'
