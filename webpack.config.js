@@ -5,9 +5,9 @@ const DESTINATION = path.join(ROOT, "/dist");
 /** wepback resolve */
 const RESOLVE = {
   extensions: [".tsx", ".ts", ".js", ".html"],
-  alias: {          
-    'react': path.resolve(__dirname, './node_modules/react'),
-    'react-dom': path.resolve(__dirname, './node_modules/react-dom'),      
+  alias: {
+    react: path.resolve(__dirname, "./node_modules/react"),
+    "react-dom": path.resolve(__dirname, "./node_modules/react-dom")
   }
 };
 /** webpack plugins */
@@ -17,7 +17,8 @@ const MODULE = {
     {
       test: /\.ts|\.tsx$/,
       exclude: [/node_modules/],
-      loader: "awesome-typescript-loader",
+      // loader: "awesome-typescript-loader",
+      use: "ts-loader",
       include: __dirname
     },
     {
@@ -47,32 +48,32 @@ module.exports = {
   devtool: "source-map",
   devServer: {},
   output: OUTPUT,
-  externals: {      
-    // Don't bundle react or react-dom      
+  externals: {
+    // Don't bundle react or react-dom
     react: {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react',
+      root: "React",
+      commonjs2: "react",
+      commonjs: "react",
+      amd: "react"
     },
-    'react-dom': {
-      root: 'ReactDOM',
-      commonjs2: 'react-dom',
-      commonjs: 'react-dom',
-      amd: 'react-dom',
-    },
-} 
+    "react-dom": {
+      root: "ReactDOM",
+      commonjs2: "react-dom",
+      commonjs: "react-dom",
+      amd: "react-dom"
+    }
+  }
 };
 
-function DtsBundlePlugin(){}
-DtsBundlePlugin.prototype.apply = function (compiler) {
-  compiler.plugin('done', function(){
-    var dts = require('dts-bundle');
+function DtsBundlePlugin() {}
+DtsBundlePlugin.prototype.apply = function(compiler) {
+  compiler.plugin("done", function() {
+    var dts = require("dts-bundle");
 
     dts.bundle({
       name: "react-crud-master",
-      main: 'lib/index.d.ts',
-      out: '../dist/index.d.ts',
+      main: "lib/index.d.ts",
+      out: "../dist/index.d.ts",
       removeSource: false,
       outputAsModuleFolder: true // to use npm in-package typings
     });

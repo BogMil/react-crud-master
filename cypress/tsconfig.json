@@ -1,9 +1,20 @@
+// {
+//   "extends": "../tsconfig.json",
+//   "include": [
+//     "../node_modules/cypress",
+//     "*/*.ts"
+//   ]
+// }
 {
-    "extends": "../tsconfig.json",
-    "include": [
-      "integration/*.tsx",
-      "integration/*.ts",
-      "support/*.ts",
-      "../node_modules/cypress"
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "types": [
+      "cypress"
     ]
   }
+}

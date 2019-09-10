@@ -26238,10 +26238,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COL_MENU_MODAL", function() { return COL_MENU_MODAL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CRUD_MODAL", function() { return CRUD_MODAL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CONTEXT_MENU_MODAL", function() { return CONTEXT_MENU_MODAL; });
-var REACT_CRUD_MASTER = "REACT_CRUD_MASTER";
-var COL_MENU_MODAL = "COL_MENU_MODAL";
-var CRUD_MODAL = "CRUD_MODAL";
-var CONTEXT_MENU_MODAL = 'CONTEXT_MENU_MODAL';
+const REACT_CRUD_MASTER = "REACT_CRUD_MASTER";
+const COL_MENU_MODAL = "COL_MENU_MODAL";
+const CRUD_MODAL = "CRUD_MODAL";
+const CONTEXT_MENU_MODAL = 'CONTEXT_MENU_MODAL';
 
 
 /***/ }),
@@ -26261,21 +26261,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/actionNamespaces */ "./src/actions/actionNamespaces.ts");
 
 
-var namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["COL_MENU_MODAL"];
+const namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["COL_MENU_MODAL"];
 function openModal(colModel) {
     return {
         type: _colMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["ColMenuModalActionTypeNames"].OPEN_MODAL,
         payload: {
-            colModel: colModel
+            colModel
         },
-        namespace: namespace
+        namespace
     };
 }
 function closeModal() {
     return {
         type: _colMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["ColMenuModalActionTypeNames"].CLOSE_MODAL,
         payload: null,
-        namespace: namespace
+        namespace
     };
 }
 
@@ -26301,19 +26301,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _colMenuModal_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./colMenuModal.types */ "./src/components/colMenuModal/colMenuModal.types.ts");
 /* harmony import */ var _colMenuModal_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./colMenuModal.actions */ "./src/components/colMenuModal/colMenuModal.actions.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 
 
 
@@ -26321,16 +26308,14 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
-var ColMenuModalComponent = /** @class */ (function (_super) {
-    __extends(ColMenuModalComponent, _super);
-    function ColMenuModalComponent(props) {
-        var _this = _super.call(this, props) || this;
-        _this.componentDidMount = function () {
+class ColMenuModalComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.componentDidMount = () => {
         };
-        _this.state = Object(_colMenuModal_types__WEBPACK_IMPORTED_MODULE_5__["initialState"])();
-        return _this;
+        this.state = Object(_colMenuModal_types__WEBPACK_IMPORTED_MODULE_5__["initialState"])();
     }
-    ColMenuModalComponent.prototype.render = function () {
+    render() {
         return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"], { size: "sm", centered: true, show: this.props.show, onHide: this.props.closeColMenuModel },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"].Header, { closeButton: true },
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"].Title, { id: "contained-modal-title-vcenter" }, this.props.colModel && this.props.colModel.name)),
@@ -26341,15 +26326,14 @@ var ColMenuModalComponent = /** @class */ (function (_super) {
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "freeze"),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "group"),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "advanced column filter"))));
-    };
-    return ColMenuModalComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-var mapDispatchToProps = function (dispatch, ownProps) {
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        closeColMenuModel: function () { return dispatch(_colMenuModal_actions__WEBPACK_IMPORTED_MODULE_6__["closeModal"]()); }
+        closeColMenuModel: () => dispatch(_colMenuModal_actions__WEBPACK_IMPORTED_MODULE_6__["closeModal"]())
     };
 };
-var mapStateToProps = function (state, props) {
+const mapStateToProps = (state, props) => {
     return {
         colModel: state.colMenuModal.colModel,
         show: state.colMenuModal.show
@@ -26372,30 +26356,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ColMenuModalReducer", function() { return ColMenuModalReducer; });
 /* harmony import */ var _colMenuModal_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./colMenuModal.types */ "./src/components/colMenuModal/colMenuModal.types.ts");
 /* harmony import */ var _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/actionNamespaces */ "./src/actions/actionNamespaces.ts");
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 
 
-function ColMenuModalReducer(state, action) {
-    if (state === void 0) { state = Object(_colMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["initialColMenuModalStateProps"])(); }
+function ColMenuModalReducer(state = Object(_colMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["initialColMenuModalStateProps"])(), action) {
     if (action.namespace != _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["COL_MENU_MODAL"])
         return state;
     switch (action.type) {
         case _colMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["ColMenuModalActionTypeNames"].OPEN_MODAL: {
-            var typedAction = action;
-            return Object.assign({}, __assign({}, state), { show: true, colModel: typedAction.payload.colModel });
+            let typedAction = action;
+            return Object.assign({}, Object.assign({}, state), { show: true, colModel: typedAction.payload.colModel });
         }
         case _colMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["ColMenuModalActionTypeNames"].CLOSE_MODAL: {
-            return Object.assign({}, __assign({}, state), { show: false, colModel: null });
+            return Object.assign({}, Object.assign({}, state), { show: false, colModel: null });
         }
         default:
             return state;
@@ -26419,14 +26391,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialColMenuModalStateProps", function() { return initialColMenuModalStateProps; });
 /* harmony import */ var _types_ColModel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../types/ColModel */ "./src/types/ColModel.ts");
 
-var ColMenuModalActionTypeNames = {
+const ColMenuModalActionTypeNames = {
     OPEN_MODAL: "OPEN_MODAL",
     CLOSE_MODAL: 'CLOSE_MODAL'
 };
-var initialState = function () {
+const initialState = () => {
     return {};
 };
-var initialColMenuModalStateProps = function () {
+const initialColMenuModalStateProps = () => {
     return {
         colModel: new _types_ColModel__WEBPACK_IMPORTED_MODULE_0__["ColModel"](),
         show: false,
@@ -26478,13 +26450,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContextMenuModalActionTypeNames", function() { return ContextMenuModalActionTypeNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialContextMenuModalStateProps", function() { return initialContextMenuModalStateProps; });
-var ContextMenuModalActionTypeNames = {
+const ContextMenuModalActionTypeNames = {
     SET_CONTEXT_MENU_TRIGGER_REF: "SET_CONTEXT_MENU_TRIGGER_REF",
 };
-var initialState = function () {
+const initialState = () => {
     return {};
 };
-var initialContextMenuModalStateProps = function () {
+const initialContextMenuModalStateProps = () => {
     return {
         contextMenuTrigger: null,
         RCMID: Date.now()
@@ -26508,14 +26480,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/actionNamespaces */ "./src/actions/actionNamespaces.ts");
 
 
-var namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["CONTEXT_MENU_MODAL"];
+const namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["CONTEXT_MENU_MODAL"];
 function setContextMenuTriggerRef(c) {
     return {
         type: _ContextMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["ContextMenuModalActionTypeNames"].SET_CONTEXT_MENU_TRIGGER_REF,
         payload: {
             ref: c
         },
-        namespace: namespace
+        namespace
     };
 }
 
@@ -26540,36 +26512,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _contextMenuModal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contextMenuModal.actions */ "./src/components/contextMenuModal/contextMenuModal.actions.ts");
 /* harmony import */ var react_contextmenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-contextmenu */ "./node_modules/react-contextmenu/es6/index.js");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 
 
 
 
 
 
-var ContextMenuModalComponent = /** @class */ (function (_super) {
-    __extends(ContextMenuModalComponent, _super);
-    function ContextMenuModalComponent() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    ContextMenuModalComponent.prototype.render = function () {
-        var _this = this;
+class ContextMenuModalComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    render() {
         return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null,
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_5__["ContextMenuTrigger"], { id: "context_menu_" + this.props.RCMID, ref: function (c) { return _this.props.setContextMenuTriggerRef(c); } },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_5__["ContextMenuTrigger"], { id: `context_menu_${this.props.RCMID}`, ref: c => this.props.setContextMenuTriggerRef(c) },
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null)),
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_5__["ContextMenu"], { id: "context_menu_" + this.props.RCMID },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_5__["ContextMenu"], { id: `context_menu_${this.props.RCMID}` },
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_contextmenu__WEBPACK_IMPORTED_MODULE_5__["MenuItem"], null,
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-edit" }),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { style: { paddingLeft: 10 } }, "Edit")),
@@ -26580,15 +26534,14 @@ var ContextMenuModalComponent = /** @class */ (function (_super) {
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-eye" }),
                     " ",
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { style: { paddingLeft: 10 } }, "View")))));
-    };
-    return ContextMenuModalComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-var mapDispatchToProps = function (dispatch) {
+    }
+}
+const mapDispatchToProps = (dispatch) => {
     return {
-        setContextMenuTriggerRef: function (c) { return dispatch(_contextMenuModal_actions__WEBPACK_IMPORTED_MODULE_4__["setContextMenuTriggerRef"](c)); },
+        setContextMenuTriggerRef: (c) => dispatch(_contextMenuModal_actions__WEBPACK_IMPORTED_MODULE_4__["setContextMenuTriggerRef"](c)),
     };
 };
-var mapStateToProps = function (state) {
+const mapStateToProps = (state) => {
     return {
         // contextMenuTrigger:state.contextMenuModal.contextMenuTrigger,
         RCMID: state.reactCrudMaster.RCMID
@@ -26611,27 +26564,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContextMenuModalReducer", function() { return ContextMenuModalReducer; });
 /* harmony import */ var _ContextMenuModal_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContextMenuModal.types */ "./src/components/contextMenuModal/ContextMenuModal.types.ts");
 /* harmony import */ var _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/actionNamespaces */ "./src/actions/actionNamespaces.ts");
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 
 
-function ContextMenuModalReducer(state, action) {
-    if (state === void 0) { state = Object(_ContextMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["initialContextMenuModalStateProps"])(); }
+function ContextMenuModalReducer(state = Object(_ContextMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["initialContextMenuModalStateProps"])(), action) {
     if (action.namespace != _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["CONTEXT_MENU_MODAL"])
         return state;
     switch (action.type) {
         case _ContextMenuModal_types__WEBPACK_IMPORTED_MODULE_0__["ContextMenuModalActionTypeNames"].SET_CONTEXT_MENU_TRIGGER_REF: {
-            var typedAction = action;
-            return Object.assign({}, __assign({}, state), { contextMenuTrigger: typedAction.payload.ref });
+            let typedAction = action;
+            return Object.assign({}, Object.assign({}, state), { contextMenuTrigger: typedAction.payload.ref });
         }
         default:
             return state;
@@ -26658,38 +26599,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _crudModal_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./crudModal.types */ "./src/components/crudModal/crudModal.types.ts");
 
 
-var namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_0__["CRUD_MODAL"];
+const namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_0__["CRUD_MODAL"];
 function closeModal() {
     return {
         type: _crudModal_types__WEBPACK_IMPORTED_MODULE_1__["CrudModalActionTypeNames"].CLOSE_MODAL,
         payload: null,
-        namespace: namespace
+        namespace
     };
 }
 function openModal() {
     return {
         type: _crudModal_types__WEBPACK_IMPORTED_MODULE_1__["CrudModalActionTypeNames"].OPEN_MODAL,
         payload: null,
-        namespace: namespace
+        namespace
     };
 }
 function generateColNamePropertiesInRowData(colModels) {
     return {
         type: _crudModal_types__WEBPACK_IMPORTED_MODULE_1__["CrudModalActionTypeNames"].GENERATE_COL_NAME_PROPERTIES_IN_ROW_DATA,
         payload: {
-            colModels: colModels
+            colModels
         },
-        namespace: namespace
+        namespace
     };
 }
 function onRowDataChange(name, value) {
     return {
         type: _crudModal_types__WEBPACK_IMPORTED_MODULE_1__["CrudModalActionTypeNames"].ON_ROW_DATA_CHANGE,
         payload: {
-            name: name,
-            value: value
+            name,
+            value
         },
-        namespace: namespace
+        namespace
     };
 }
 
@@ -26715,19 +26656,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../crudModal/crudModal.actions */ "./src/components/crudModal/crudModal.actions.ts");
 /* harmony import */ var _crudModal_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./crudModal.types */ "./src/components/crudModal/crudModal.types.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 
 
 
@@ -26735,45 +26663,41 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
-var CrudModalComponent = /** @class */ (function (_super) {
-    __extends(CrudModalComponent, _super);
-    function CrudModalComponent(props) {
-        var _this = _super.call(this, props) || this;
-        _this.componentDidMount = function () {
+class CrudModalComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.componentDidMount = () => {
         };
-        _this.handleClose = function () {
-            _this.props.closeCrudModal();
+        this.handleClose = () => {
+            this.props.closeCrudModal();
         };
-        _this.onRowDataChange = function (name, value) {
-            _this.props.onRowDataChange(name, value);
+        this.onRowDataChange = (name, value) => {
+            this.props.onRowDataChange(name, value);
         };
-        _this.state = Object(_crudModal_types__WEBPACK_IMPORTED_MODULE_6__["initialState"])();
-        return _this;
+        this.state = Object(_crudModal_types__WEBPACK_IMPORTED_MODULE_6__["initialState"])();
     }
-    CrudModalComponent.prototype.render = function () {
-        var _this = this;
+    render() {
         return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"], { style: { borderRadius: 0 }, show: this.props.show, onHide: this.handleClose, centered: true },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"].Header, { style: { borderRadius: 0 }, closeButton: true },
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"].Title, null, "Modal heading ")),
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"].Body, null, this.props.colModels.map(function (column) {
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"].Body, null, this.props.colModels.map((column) => {
                 return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { key: column.name },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, { controlId: "formBasicEmail", style: { marginBottom: 5 } },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, { style: { marginBottom: 0 } }, column.name),
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, { onChange: function (e) { return _this.onRowDataChange(column.name, e.target.value); }, type: "text", placeholder: column.name, value: _this.props.rowData[column.name] }))));
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, { onChange: (e) => this.onRowDataChange(column.name, e.target.value), type: "text", placeholder: column.name, value: this.props.rowData[column.name] }))));
             })),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Modal"].Footer, null,
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { variant: "secondary", onClick: this.handleClose }, "Close"),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { variant: "primary", onClick: this.handleClose }, "Save Changes"))));
-    };
-    return CrudModalComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-var mapDispatchToProps = function (dispatch, ownProps) {
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        closeCrudModal: function () { return dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_5__["closeModal"]()); },
-        onRowDataChange: function (name, value) { return dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_5__["onRowDataChange"](name, value)); }
+        closeCrudModal: () => dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_5__["closeModal"]()),
+        onRowDataChange: (name, value) => dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_5__["onRowDataChange"](name, value))
     };
 };
-var mapStateToProps = function (state, props) {
+const mapStateToProps = (state, props) => {
     return {
         show: state.crudModal.show,
         colModels: state.reactCrudMaster.colModels,
@@ -26800,21 +26724,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
 /* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/actionNamespaces */ "./src/actions/actionNamespaces.ts");
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 
 
 
-var initialState = {
+const initialState = {
     colModels: [],
     data: [],
     width: 0,
@@ -26828,29 +26741,27 @@ var initialState = {
     tableWidth: 0,
     emptyModalState: null
 };
-function crudModalReducer(state, action) {
-    var _a;
-    if (state === void 0) { state = Object(_crudModal_types__WEBPACK_IMPORTED_MODULE_0__["initialCrudModalStateProps"])(); }
+function crudModalReducer(state = Object(_crudModal_types__WEBPACK_IMPORTED_MODULE_0__["initialCrudModalStateProps"])(), action) {
     if (action.namespace != _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_2__["CRUD_MODAL"])
         return state;
     switch (action.type) {
         case _crudModal_types__WEBPACK_IMPORTED_MODULE_0__["CrudModalActionTypeNames"].CLOSE_MODAL: {
-            return Object.assign({}, __assign({}, state), { show: false, rowData: state.emptyRowData });
+            return Object.assign({}, Object.assign({}, state), { show: false, rowData: state.emptyRowData });
         }
         case _crudModal_types__WEBPACK_IMPORTED_MODULE_0__["CrudModalActionTypeNames"].OPEN_MODAL: {
-            return Object.assign({}, __assign({}, state), { show: true });
+            return Object.assign({}, Object.assign({}, state), { show: true });
         }
         case _crudModal_types__WEBPACK_IMPORTED_MODULE_0__["CrudModalActionTypeNames"].GENERATE_COL_NAME_PROPERTIES_IN_ROW_DATA: {
-            var typedAction = action;
-            var rowData_1 = {};
-            typedAction.payload.colModels.map(function (colModel) {
-                rowData_1[colModel.name] = "";
+            let typedAction = action;
+            let rowData = {};
+            typedAction.payload.colModels.map((colModel) => {
+                rowData[colModel.name] = "";
             });
-            return Object.assign({}, __assign({}, state), { rowData: rowData_1, emptyRowData: rowData_1 });
+            return Object.assign({}, Object.assign({}, state), { rowData, emptyRowData: rowData });
         }
         case _crudModal_types__WEBPACK_IMPORTED_MODULE_0__["CrudModalActionTypeNames"].ON_ROW_DATA_CHANGE: {
-            var typedAction = action;
-            return immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(state, { rowData: (_a = {}, _a[typedAction.payload.name] = { $set: typedAction.payload.value }, _a) });
+            let typedAction = action;
+            return immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(state, { rowData: { [typedAction.payload.name]: { $set: typedAction.payload.value } } });
         }
         default:
             return state;
@@ -26872,16 +26783,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CrudModalActionTypeNames", function() { return CrudModalActionTypeNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialCrudModalStateProps", function() { return initialCrudModalStateProps; });
-var CrudModalActionTypeNames = {
+const CrudModalActionTypeNames = {
     CLOSE_MODAL: "CLOSE_MODAL",
     OPEN_MODAL: "OPEN_MODAL",
     GENERATE_COL_NAME_PROPERTIES_IN_ROW_DATA: "GENERATE_COL_NAME_PROPERTIES_IN_ROW_DATA",
     ON_ROW_DATA_CHANGE: 'ON_ROW_DATA_CHANGE',
 };
-var initialState = function () {
+const initialState = () => {
     return {};
 };
-var initialCrudModalStateProps = function () {
+const initialCrudModalStateProps = () => {
     return {
         show: false,
         colModels: [],
@@ -26917,50 +26828,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../crudModal/crudModal.actions */ "./src/components/crudModal/crudModal.actions.ts");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-var _this = undefined;
 
 
 
 
-var namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["REACT_CRUD_MASTER"];
+const namespace = _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_1__["REACT_CRUD_MASTER"];
 function privateSetColModels(colModels) {
-    var clonedColModels = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_2___default()(colModels);
-    var tableWidth = 0;
-    clonedColModels.forEach(function (colModel) {
+    let clonedColModels = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_2___default()(colModels);
+    let tableWidth = 0;
+    clonedColModels.forEach((colModel) => {
         tableWidth += getUsefullColModelWith(colModel);
         colModel.showColMenuModal = false;
     });
@@ -26968,9 +26852,9 @@ function privateSetColModels(colModels) {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_COL_MODELS,
         payload: {
             colModels: clonedColModels,
-            tableWidth: tableWidth
+            tableWidth
         },
-        namespace: namespace
+        namespace
     };
 }
 function getUsefullColModelWith(colModel) {
@@ -26978,68 +26862,63 @@ function getUsefullColModelWith(colModel) {
         return colModel.width;
     return 0;
 }
-var setColModels = function (colModels) {
-    return function (dispatch) { return __awaiter(_this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            dispatch(privateSetColModels(colModels));
-            dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_3__["generateColNamePropertiesInRowData"](colModels));
-            return [2 /*return*/];
-        });
-    }); };
+const setColModels = (colModels) => {
+    return (dispatch) => __awaiter(void 0, void 0, void 0, function* () {
+        dispatch(privateSetColModels(colModels));
+        dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_3__["generateColNamePropertiesInRowData"](colModels));
+    });
 };
 function setData(data) {
-    var clonedData = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_2___default()(data);
+    let clonedData = lodash_cloneDeep__WEBPACK_IMPORTED_MODULE_2___default()(data);
     return {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_DATA,
         payload: { data: clonedData },
-        namespace: namespace,
+        namespace,
     };
 }
 function resizeColumn(e) {
     return {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].RESIZE_COLUMN,
-        payload: { e: e, },
-        namespace: namespace,
+        payload: { e, },
+        namespace,
     };
 }
-function setColumnToResize(column, e) {
-    if (column === void 0) { column = null; }
-    if (e === void 0) { e = null; }
+function setColumnToResize(column = null, e = null) {
     return {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_COLUMN_TO_RESIZE,
         payload: {
-            e: e,
-            column: column
+            e,
+            column
         },
-        namespace: namespace,
+        namespace,
     };
 }
 function resetTableoffsetWidth() {
     return {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_INITIAL_TABLE_OFFSET_WIDTH,
-        namespace: namespace,
+        namespace,
         payload: null
     };
 }
 function changeOrderDirection(column) {
     return {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].CHANGE_ORDER_DIRECTION,
-        namespace: namespace,
-        payload: { column: column }
+        namespace,
+        payload: { column }
     };
 }
 function selectRow(row) {
     return {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SELECT_ROW,
-        namespace: namespace,
-        payload: { row: row }
+        namespace,
+        payload: { row }
     };
 }
 function setTableTitle(tableTitle) {
     return {
         type: _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_TABLE_TITLE,
-        namespace: namespace,
-        payload: { tableTitle: tableTitle }
+        namespace,
+        payload: { tableTitle }
     };
 }
 
@@ -27071,19 +26950,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _crudModal_crudModal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../crudModal/crudModal.component */ "./src/components/crudModal/crudModal.component.tsx");
 /* harmony import */ var _colMenuModal_colMenuModal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../colMenuModal/colMenuModal.component */ "./src/components/colMenuModal/colMenuModal.component.tsx");
 /* harmony import */ var _contextMenuModal_contextMenuModal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../contextMenuModal/contextMenuModal.component */ "./src/components/contextMenuModal/contextMenuModal.component.tsx");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 
 
 
@@ -27097,57 +26963,55 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
-var ReactCrudMasterComponent = /** @class */ (function (_super) {
-    __extends(ReactCrudMasterComponent, _super);
-    function ReactCrudMasterComponent(props) {
-        var _this = _super.call(this, props) || this;
-        _this.componentDidMount = function () {
-            _this.props.setColModels(_this.props.colModelsProp);
-            _this.props.setData(_this.props.dataProp);
-            _this.props.resetTableoffsetWidth();
-            if (_this.props.tableTitle != null)
-                _this.props.setTableTitle(_this.props.tableTitle);
-            document.getElementById("CMID-" + _this.props.RCMID).addEventListener("mouseup", function () {
-                _this.disableResizingColumnIfInResizeMode();
+class ReactCrudMasterComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.componentDidMount = () => {
+            this.props.setColModels(this.props.colModelsProp);
+            this.props.setData(this.props.dataProp);
+            this.props.resetTableoffsetWidth();
+            if (this.props.tableTitle != null)
+                this.props.setTableTitle(this.props.tableTitle);
+            document.getElementById(`CMID-${this.props.RCMID}`).addEventListener("mouseup", () => {
+                this.disableResizingColumnIfInResizeMode();
             });
-            document.getElementById("CMID-" + _this.props.RCMID).addEventListener("mousemove", function (e) {
-                _this.resizeColumnIfInResizeMode(e);
+            document.getElementById(`CMID-${this.props.RCMID}`).addEventListener("mousemove", (e) => {
+                this.resizeColumnIfInResizeMode(e);
             });
         };
-        _this.componentWillMount = function () {
-            window.addEventListener("resize", _this.handleWindowSizeChange);
+        this.componentWillMount = () => {
+            window.addEventListener("resize", this.handleWindowSizeChange);
         };
-        _this.componentWillUnmount = function () {
-            window.removeEventListener("resize", _this.handleWindowSizeChange);
+        this.componentWillUnmount = () => {
+            window.removeEventListener("resize", this.handleWindowSizeChange);
         };
-        _this.handleWindowSizeChange = function () {
-            _this.props.resetTableoffsetWidth();
+        this.handleWindowSizeChange = () => {
+            this.props.resetTableoffsetWidth();
         };
-        _this.disableResizingColumnIfInResizeMode = function () {
-            if (_this.props.columnToResize == null)
+        this.disableResizingColumnIfInResizeMode = () => {
+            if (this.props.columnToResize == null)
                 return;
-            _this.props.setColumnToResize();
-            _this.enableTextSelectionOnPage();
+            this.props.setColumnToResize();
+            this.enableTextSelectionOnPage();
         };
-        _this.resizeColumnIfInResizeMode = function (e) {
-            if (_this.props.columnToResize != null) {
-                _this.props.resizeColumn(e);
+        this.resizeColumnIfInResizeMode = (e) => {
+            if (this.props.columnToResize != null) {
+                this.props.resizeColumn(e);
             }
         };
-        _this.enableTextSelectionOnPage = function () {
+        this.enableTextSelectionOnPage = () => {
             document.body.style.webkitUserSelect = "";
             document.body.style.msUserSelect = "";
             document.body.style.userSelect = "";
         };
-        _this.state = Object(_reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_6__["initialState"])();
-        return _this;
+        this.state = Object(_reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_6__["initialState"])();
     }
-    ReactCrudMasterComponent.prototype.render = function () {
+    render() {
         return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null,
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Card"], { id: "CMID-" + this.props.RCMID, style: { minWidth: 360, borderRadius: 0 } },
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Card"], { id: `CMID-${this.props.RCMID}`, style: { minWidth: 360, borderRadius: 0 } },
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Card"].Header, { className: 'cm-table-header', "data-testid": 'cm-table-header', style: { padding: 5 }, as: "h5" }, this.props.tableTitleProp),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Card"].Body, { style: { padding: 0 } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { id: "reactable-card-body-" + this.props.RCMID, className: "reactable-table-holder" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { id: `reactable-card-body-${this.props.RCMID}`, className: "reactable-table-holder" },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tableHeader_tableHeader_component__WEBPACK_IMPORTED_MODULE_8__["default"], null),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tableBody_tableBody_component__WEBPACK_IMPORTED_MODULE_9__["default"], null)),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { style: { paddingRight: 20, paddingLeft: 20, paddingTop: 10, paddingBottom: 10 } },
@@ -27155,24 +27019,19 @@ var ReactCrudMasterComponent = /** @class */ (function (_super) {
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_crudModal_crudModal_component__WEBPACK_IMPORTED_MODULE_10__["default"], null),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_colMenuModal_colMenuModal_component__WEBPACK_IMPORTED_MODULE_11__["default"], null),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_contextMenuModal_contextMenuModal_component__WEBPACK_IMPORTED_MODULE_12__["default"], null)));
-    };
-    return ReactCrudMasterComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-var mapDispatchToProps = function (dispatch) {
+    }
+}
+const mapDispatchToProps = (dispatch) => {
     return {
-        setColModels: function (colModels) { return dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setColModels"](colModels)); },
-        setData: function (data) { return dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setData"](data)); },
-        resizeColumn: function (e) { return dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["resizeColumn"](e)); },
-        setColumnToResize: function (column, e) {
-            if (column === void 0) { column = null; }
-            if (e === void 0) { e = null; }
-            return dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setColumnToResize"](column, e));
-        },
-        resetTableoffsetWidth: function () { return dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["resetTableoffsetWidth"]()); },
-        setTableTitle: function (tableTitle) { return dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setTableTitle"](tableTitle)); },
+        setColModels: (colModels) => dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setColModels"](colModels)),
+        setData: (data) => dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setData"](data)),
+        resizeColumn: (e) => dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["resizeColumn"](e)),
+        setColumnToResize: (column = null, e = null) => dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setColumnToResize"](column, e)),
+        resetTableoffsetWidth: () => dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["resetTableoffsetWidth"]()),
+        setTableTitle: (tableTitle) => dispatch(_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_7__["setTableTitle"](tableTitle)),
     };
 };
-var mapStateToProps = function (state) {
+const mapStateToProps = (state) => {
     return {
         columnToResize: state.reactCrudMaster.columnToResize,
         RCMID: state.reactCrudMaster.RCMID,
@@ -27230,21 +27089,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! immutability-helper */ "./node_modules/immutability-helper/index.js");
 /* harmony import */ var immutability_helper__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(immutability_helper__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/actionNamespaces */ "./src/actions/actionNamespaces.ts");
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 
 
 
-var initialState = {
+const initialState = {
     colModels: [],
     data: [],
     width: 0,
@@ -27258,60 +27106,59 @@ var initialState = {
     tableWidth: 0,
     emptyModalState: null
 };
-function reactCrudMasterReducer(state, action) {
-    if (state === void 0) { state = Object(_reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["initialReactCrudMasterStateProps"])(); }
+function reactCrudMasterReducer(state = Object(_reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["initialReactCrudMasterStateProps"])(), action) {
     if (action.namespace != _actions_actionNamespaces__WEBPACK_IMPORTED_MODULE_2__["REACT_CRUD_MASTER"])
         return state;
     switch (action.type) {
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_COL_MODELS: {
             action = action;
-            return Object.assign({}, __assign({}, state), {
+            return Object.assign({}, Object.assign({}, state), {
                 colModels: action.payload.colModels,
                 tableWidth: action.payload.tableWidth,
             });
         }
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_DATA: {
-            var typedAction = action;
-            return Object.assign({}, __assign({}, state), {
+            let typedAction = action;
+            return Object.assign({}, Object.assign({}, state), {
                 data: typedAction.payload.data
             });
         }
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].RESIZE_COLUMN:
             action = action;
-            var pageX_1 = action.payload.e.pageX;
-            var colModels = state.colModels.map(function (colModel) {
+            let pageX = action.payload.e.pageX;
+            let colModels = state.colModels.map(colModel => {
                 if (colModel.name == state.columnToResize.name) {
-                    if (state.startOffset + pageX_1 >= state.columnToResize.minWidth) {
-                        colModel.width = state.startOffset + pageX_1;
+                    if (state.startOffset + pageX >= state.columnToResize.minWidth) {
+                        colModel.width = state.startOffset + pageX;
                     }
                 }
                 return colModel;
             });
-            var tableWidth_1 = 0;
-            colModels.forEach(function (colModel) {
-                tableWidth_1 += colModel.width;
+            let tableWidth = 0;
+            colModels.forEach(colModel => {
+                tableWidth += colModel.width;
             });
-            var newState = immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(state, { colModels: { $set: colModels }, tableWidth: { $set: tableWidth_1 } });
+            let newState = immutability_helper__WEBPACK_IMPORTED_MODULE_1___default()(state, { colModels: { $set: colModels }, tableWidth: { $set: tableWidth } });
             return newState;
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_COLUMN_TO_RESIZE: {
-            var typedAction = action;
-            var _a = __assign({}, typedAction.payload), column = _a.column, e = _a.e;
+            let typedAction = action;
+            let { column, e } = Object.assign({}, typedAction.payload);
             if (column != null)
-                return Object.assign({}, __assign({}, state), { columnToResize: column, startOffset: e.target.parentNode.offsetWidth - e.pageX });
-            return Object.assign({}, __assign({}, state), { columnToResize: null });
+                return Object.assign({}, Object.assign({}, state), { columnToResize: column, startOffset: e.target.parentNode.offsetWidth - e.pageX });
+            return Object.assign({}, Object.assign({}, state), { columnToResize: null });
         }
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_INITIAL_TABLE_OFFSET_WIDTH: {
-            var tableBody = document.getElementById("CMID-" + state.RCMID);
-            return Object.assign({}, __assign({}, state), { width: tableBody.offsetWidth });
+            let tableBody = document.getElementById(`CMID-${state.RCMID}`);
+            return Object.assign({}, Object.assign({}, state), { width: tableBody.offsetWidth });
         }
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SELECT_ROW: {
-            var typedAction = action;
-            return Object.assign({}, __assign({}, state), { selectedRow: typedAction.payload.row });
+            let typedAction = action;
+            return Object.assign({}, Object.assign({}, state), { selectedRow: typedAction.payload.row });
         }
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].CHANGE_ORDER_DIRECTION: {
-            var typedAction_1 = action;
-            var colModels_1 = state.colModels.map(function (column) {
-                if (column.name == typedAction_1.payload.column.name) {
+            let typedAction = action;
+            let colModels = state.colModels.map((column) => {
+                if (column.name == typedAction.payload.column.name) {
                     if (column.orderDirection === "asc")
                         column.orderDirection = "desc";
                     else if (column.orderDirection === "desc")
@@ -27324,11 +27171,11 @@ function reactCrudMasterReducer(state, action) {
                 }
                 return column;
             });
-            return Object.assign({}, __assign({}, state), { colModels: colModels_1 });
+            return Object.assign({}, Object.assign({}, state), { colModels: colModels });
         }
         case _reactCrudMaster_types__WEBPACK_IMPORTED_MODULE_0__["ReactCrudMasterActionTypeNames"].SET_TABLE_TITLE: {
-            var typedAction = action;
-            return Object.assign({}, __assign({}, state), { tableTitleProp: typedAction.payload.tableTitle });
+            let typedAction = action;
+            return Object.assign({}, Object.assign({}, state), { tableTitleProp: typedAction.payload.tableTitle });
         }
         default:
             return state;
@@ -27350,7 +27197,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactCrudMasterActionTypeNames", function() { return ReactCrudMasterActionTypeNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialReactCrudMasterStateProps", function() { return initialReactCrudMasterStateProps; });
-var ReactCrudMasterActionTypeNames = {
+const ReactCrudMasterActionTypeNames = {
     SET_COL_MODELS: "SET_COL_MODELS",
     RESIZE_COLUMN: "RESIZE_COLUMN",
     SET_COLUMN_TO_RESIZE: "SET_COLUMN_TO_RESIZE",
@@ -27360,7 +27207,7 @@ var ReactCrudMasterActionTypeNames = {
     SET_DATA: 'SET_DATA',
     SET_TABLE_TITLE: 'SET_TABLE_TITLE'
 };
-var initialState = function () {
+const initialState = () => {
     return {
         colModels: [],
         data: [],
@@ -27376,7 +27223,7 @@ var initialState = function () {
         emptyModalState: null,
     };
 };
-var initialReactCrudMasterStateProps = function () {
+const initialReactCrudMasterStateProps = () => {
     return {
         colModels: [],
         data: [],
@@ -27416,19 +27263,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _tableBody_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tableBody.types */ "./src/components/tableBody/tableBody.types.ts");
 /* harmony import */ var _reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../reactCrudMaster/reactCrudMaster.actions */ "./src/components/reactCrudMaster/reactCrudMaster.actions.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 
 
 
@@ -27436,24 +27270,23 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
-var TableBodyComponent = /** @class */ (function (_super) {
-    __extends(TableBodyComponent, _super);
-    function TableBodyComponent(props) {
-        var _this = _super.call(this, props) || this;
-        _this.onClickOnRow = function (row) {
-            _this.props.selectRow(row);
+class TableBodyComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.onClickOnRow = (row) => {
+            this.props.selectRow(row);
         };
-        _this.onRightClickOnRow = function (e, row) {
+        this.onRightClickOnRow = (e, row) => {
             e.preventDefault();
-            _this.openContextMenu(e);
-            _this.onClickOnRow(row);
+            this.openContextMenu(e);
+            this.onClickOnRow(row);
         };
-        _this.openContextMenu = function (e) {
-            if (_this.props.contextTrigger != null) {
-                _this.props.contextTrigger.handleContextClick(e);
+        this.openContextMenu = (e) => {
+            if (this.props.contextTrigger != null) {
+                this.props.contextTrigger.handleContextClick(e);
             }
         };
-        _this.testScroll = function (e) {
+        this.testScroll = (e) => {
             var x = document.getElementById('z');
             x.scrollLeft = e.target.scrollLeft;
             var z = document.getElementsByClassName('react-contextmenu--visible');
@@ -27464,12 +27297,10 @@ var TableBodyComponent = /** @class */ (function (_super) {
                     (z.item(i)).classList.remove('react-contextmenu--visible');
                 }
         };
-        _this.state = Object(_tableBody_types__WEBPACK_IMPORTED_MODULE_5__["initialState"])();
-        return _this;
+        this.state = Object(_tableBody_types__WEBPACK_IMPORTED_MODULE_5__["initialState"])();
     }
-    TableBodyComponent.prototype.render = function () {
-        var _this = this;
-        return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { id: 'q', className: "reactable-data-table-holder", style: { overflowX: 'auto', overflowY: 'auto' }, onScroll: function (e) { return _this.testScroll(e); } },
+    render() {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { id: 'q', className: "reactable-data-table-holder", style: { overflowX: 'auto', overflowY: 'auto' }, onScroll: (e) => this.testScroll(e) },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Table"], { className: "reactable-table reactable-data-table", striped: true, bordered: true, hover: true, size: "sm", style: {
                     width: this.props.tableWidth,
                     borderBottom: 0,
@@ -27477,23 +27308,22 @@ var TableBodyComponent = /** @class */ (function (_super) {
                     //20 moz
                     //7 chrome
                 } },
-                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", { className: "reactable-data-body" }, this.props.data.map(function (dataRow, index) {
-                    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", { key: index, className: dataRow == _this.props.selectedRow ? "selectedRow" : "", onClick: function () { return _this.onClickOnRow(dataRow); }, onContextMenu: function (e) { return _this.onRightClickOnRow(e, dataRow); } }, _this.props.colModels.map(function (colModel, index) {
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", { className: "reactable-data-body" }, this.props.data.map((dataRow, index) => {
+                    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", { key: index, className: dataRow == this.props.selectedRow ? "selectedRow" : "", onClick: () => this.onClickOnRow(dataRow), onContextMenu: (e) => this.onRightClickOnRow(e, dataRow) }, this.props.colModels.map((colModel, index) => {
                         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", { key: index, style: { width: colModel.width, wordWrap: 'break-word', whiteSpace: 'normal', wordBreak: 'break-all' } },
                             " ",
                             dataRow[colModel.name],
                             " ");
                     })));
                 })))));
-    };
-    return TableBodyComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-var mapDispatchToProps = function (dispatch) {
+    }
+}
+const mapDispatchToProps = (dispatch) => {
     return {
-        selectRow: function (row) { return dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["selectRow"](row)); }
+        selectRow: (row) => dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["selectRow"](row))
     };
 };
-var mapStateToProps = function (state) {
+const mapStateToProps = (state) => {
     return {
         colModels: state.reactCrudMaster.colModels,
         data: state.reactCrudMaster.data,
@@ -27522,13 +27352,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactableActionTypeNames", function() { return ReactableActionTypeNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialTableBodyStateProps", function() { return initialTableBodyStateProps; });
-var ReactableActionTypeNames = {
+const ReactableActionTypeNames = {
     SET_COL_MODELS: "SET_COL_MODELS",
 };
-var initialState = function () {
+const initialState = () => {
     return {};
 };
-var initialTableBodyStateProps = function () {
+const initialTableBodyStateProps = () => {
     return {};
 };
 
@@ -27551,49 +27381,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reactCrudMaster_reactCrudMaster_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_reactCrudMaster_reactCrudMaster_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../crudModal/crudModal.actions */ "./src/components/crudModal/crudModal.actions.ts");
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 
 
 
 
 
-var TableFooterComponent = /** @class */ (function (_super) {
-    __extends(TableFooterComponent, _super);
-    function TableFooterComponent(props) {
-        var _this = _super.call(this, props) || this;
-        _this.render = function () {
-            var buttonStyle = { borderRadius: 0, margin: 1 };
-            if (_this.props.tableWidth < 620)
+class TableFooterComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.render = () => {
+            let buttonStyle = { borderRadius: 0, margin: 1 };
+            if (this.props.tableWidth < 620)
                 return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], null,
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], { xs: 2 },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], { style: { textAlign: "left" } },
-                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Dropdown"].Toggle, { size: "sm", style: __assign({}, buttonStyle), variant: "primary", id: "dropdown-basic" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Dropdown"].Toggle, { size: "sm", style: Object.assign({}, buttonStyle), variant: "primary", id: "dropdown-basic" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-bars" })),
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Dropdown"].Menu, null,
-                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Dropdown"].Item, { href: "#/action-1", onClick: function () { return _this.props.openCrudModal(); } },
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Dropdown"].Item, { href: "#/action-1", onClick: () => this.props.openCrudModal() },
                                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-plus" }),
                                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { style: { paddingLeft: 10 } }, "Add")),
                                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Dropdown"].Item, { href: "#/action-2" },
@@ -27612,36 +27417,36 @@ var TableFooterComponent = /** @class */ (function (_super) {
                                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", { style: { paddingLeft: 10 } }, "Search"))))),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], { xs: 6 },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["InputGroup"], { className: "", style: { textAlign: "center", alignItems: 'center', justifyContent: 'center' } },
-                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-angle-left" })),
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { style: { display: 'inline-block' } },
                                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, { className: "border-radius-0", style: { height: 31, margin: 1, padding: 2, width: 50 }, defaultValue: "asd" })),
-                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-angle-right" })))),
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], { xs: 4 }, " 102 - 103 / 123 ")));
             return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], null,
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], { xs: 4, style: { textAlign: "left" } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle), onClick: function () { return _this.props.openCrudModal(); } },
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle), onClick: () => this.props.openCrudModal() },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-plus" })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "far fa-edit" })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-trash-alt" })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-eye" })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-search" }))),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], { xs: 4 },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["InputGroup"], { className: "", style: { textAlign: "center", alignItems: 'center', justifyContent: 'center' } },
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-angle-double-left" })),
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-angle-left" })),
                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { style: { display: 'inline-block' } },
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, { className: "border-radius-0", style: { height: 31, margin: 1, padding: 2, width: 50 }, defaultValue: "asd" })),
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-angle-right" })),
-                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: __assign({}, buttonStyle) },
+                        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { size: "sm", style: Object.assign({}, buttonStyle) },
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { className: "fas fa-angle-double-right" })))),
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Col"], { xs: 4, style: { textAlign: "right" } },
                     react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], null,
@@ -27652,17 +27457,15 @@ var TableFooterComponent = /** @class */ (function (_super) {
                         ">",
                         " "))));
         };
-        _this.state = {};
-        return _this;
+        this.state = {};
     }
-    return TableFooterComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-var mapDispatchToProps = function (dispatch, ownProps) {
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        openCrudModal: function () { return dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"]()); },
+        openCrudModal: () => dispatch(_crudModal_crudModal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"]()),
     };
 };
-var mapStateToProps = function (state, props) {
+const mapStateToProps = (state, props) => {
     return {};
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(TableFooterComponent));
@@ -27693,19 +27496,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _colMenuModal_colMenuModal_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../colMenuModal/colMenuModal.actions */ "./src/components/colMenuModal/colMenuModal.actions.ts");
 /* harmony import */ var _tableHeader_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./tableHeader.css */ "./src/components/tableHeader/tableHeader.css");
 /* harmony import */ var _tableHeader_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_tableHeader_css__WEBPACK_IMPORTED_MODULE_8__);
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 
 
 
@@ -27715,21 +27505,18 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 
-var TableHeaderComponent = /** @class */ (function (_super) {
-    __extends(TableHeaderComponent, _super);
-    function TableHeaderComponent(props) {
-        var _this = _super.call(this, props) || this;
-        _this.componentDidMount = function () {
+class TableHeaderComponent extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.componentDidMount = () => {
         };
-        _this.onThClick = function (column) {
-            _this.props.changeOrderDirection(column);
+        this.onThClick = (column) => {
+            this.props.changeOrderDirection(column);
         };
-        _this.state = Object(_tableHeader_types__WEBPACK_IMPORTED_MODULE_5__["initialState"])();
-        return _this;
+        this.state = Object(_tableHeader_types__WEBPACK_IMPORTED_MODULE_5__["initialState"])();
     }
-    TableHeaderComponent.prototype.render = function () {
-        var _this = this;
-        return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'rcm-header-table-holder', id: 'z', onScroll: function () {
+    render() {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: 'rcm-header-table-holder', id: 'z', onScroll: () => {
                 //fix for autoscroll after closing colMenuModal
                 var x = document.getElementById('z');
                 var q = document.getElementById('q');
@@ -27737,42 +27524,37 @@ var TableHeaderComponent = /** @class */ (function (_super) {
             } },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Table"], { id: "x", className: "rcm-header-table", striped: true, bordered: true, hover: true, size: "sm", style: { width: this.props.tableWidth } },
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", { className: 'rcm-header-table-thead' },
-                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, this.props.colModels.map(function (column) {
+                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, this.props.colModels.map((column) => {
                         return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", { className: "rcm-header-table-colum-header", key: column.name, style: { width: column.width }, id: column.name },
                             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "column-header-content-holder" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "column-header-label", onClick: function () { return _this.onThClick(column); } },
+                                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "column-header-label", onClick: () => this.onThClick(column) },
                                     column.orderDirection != "" && column.orderDirection,
                                     " ",
                                     column.label),
                                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "column-header-menu-holder" },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { onClick: function () { return _this.props.openColMenuModel(column); }, size: "sm", className: "border-radius-0", style: { marginRight: 5, padding: '1px 4px' } },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], { onClick: () => this.props.openColMenuModel(column), size: "sm", className: "border-radius-0", style: { marginRight: 5, padding: '1px 4px' } },
                                         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", { style: { padding: 0 }, className: "fas fa-sliders-h" })))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "column-header-resize-bar", onDragStart: function (e) { return e.preventDefault(); }, onMouseDown: function (e) { return _this.setColumnToResize(e, column); } }, "\u00A0")));
+                            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", { className: "column-header-resize-bar", onDragStart: e => e.preventDefault(), onMouseDown: e => this.setColumnToResize(e, column) }, "\u00A0")));
                     }))))));
-    };
-    TableHeaderComponent.prototype.setColumnToResize = function (e, column) {
+    }
+    setColumnToResize(e, column) {
         this.props.setColumnToResize(column, e);
         document.body.style.webkitUserSelect = "none";
         document.body.style.msUserSelect = "none";
         document.body.style.userSelect = "none";
-    };
-    return TableHeaderComponent;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
-var mapDispatchToProps = function (dispatch, ownProps) {
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        setColModels: function (colModels) { return dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["setColModels"](colModels)); },
-        resizeColumn: function (e) { return dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["resizeColumn"](e)); },
-        setColumnToResize: function (column, e) {
-            if (column === void 0) { column = null; }
-            if (e === void 0) { e = null; }
-            return dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["setColumnToResize"](column, e));
-        },
-        resetTableoffsetWidth: function () { return dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["resetTableoffsetWidth"]()); },
-        changeOrderDirection: function (column) { return dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["changeOrderDirection"](column)); },
-        openColMenuModel: function (colModel) { return dispatch(_colMenuModal_colMenuModal_actions__WEBPACK_IMPORTED_MODULE_7__["openModal"](colModel)); }
+        setColModels: (colModels) => dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["setColModels"](colModels)),
+        resizeColumn: (e) => dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["resizeColumn"](e)),
+        setColumnToResize: (column = null, e = null) => dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["setColumnToResize"](column, e)),
+        resetTableoffsetWidth: () => dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["resetTableoffsetWidth"]()),
+        changeOrderDirection: (column) => dispatch(_reactCrudMaster_reactCrudMaster_actions__WEBPACK_IMPORTED_MODULE_6__["changeOrderDirection"](column)),
+        openColMenuModel: (colModel) => dispatch(_colMenuModal_colMenuModal_actions__WEBPACK_IMPORTED_MODULE_7__["openModal"](colModel))
     };
 };
-var mapStateToProps = function (state, props) {
+const mapStateToProps = (state, props) => {
     return {
         colModels: state.reactCrudMaster.colModels,
         data: state.reactCrudMaster.data,
@@ -27829,13 +27611,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactableActionTypeNames", function() { return ReactableActionTypeNames; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialState", function() { return initialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialTableHeaderStateProps", function() { return initialTableHeaderStateProps; });
-var ReactableActionTypeNames = {
+const ReactableActionTypeNames = {
     SET_COL_MODELS: "SET_COL_MODELS",
 };
-var initialState = function () {
+const initialState = () => {
     return {};
 };
-var initialTableHeaderStateProps = function () {
+const initialTableHeaderStateProps = () => {
     return {};
 };
 
@@ -27861,38 +27643,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _types_ColModel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./types/ColModel */ "./src/types/ColModel.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ColModel", function() { return _types_ColModel__WEBPACK_IMPORTED_MODULE_6__["ColModel"]; });
 
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 
 
 
 
 
 
-var ReactCrudMaster = /** @class */ (function (_super) {
-    __extends(ReactCrudMaster, _super);
-    function ReactCrudMaster(props) {
-        var _this = _super.call(this, props) || this;
-        _this.store = Object(redux__WEBPACK_IMPORTED_MODULE_1__["createStore"])(_rootReducer__WEBPACK_IMPORTED_MODULE_2__["rootReducer"], Object(redux__WEBPACK_IMPORTED_MODULE_1__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_5__["default"]));
-        return _this;
+class ReactCrudMaster extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+    constructor(props) {
+        super(props);
+        this.store = Object(redux__WEBPACK_IMPORTED_MODULE_1__["createStore"])(_rootReducer__WEBPACK_IMPORTED_MODULE_2__["rootReducer"], Object(redux__WEBPACK_IMPORTED_MODULE_1__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_5__["default"]));
     }
-    ReactCrudMaster.prototype.render = function () {
+    render() {
         return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], { store: this.store },
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_reactCrudMaster_reactCrudMaster_component__WEBPACK_IMPORTED_MODULE_4__["default"], { dataProp: this.props.data, colModelsProp: this.props.colModels })));
-    };
-    return ReactCrudMaster;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]));
+    }
+}
 /* harmony default export */ __webpack_exports__["default"] = (ReactCrudMaster);
 
 
@@ -27919,7 +27685,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
     reactCrudMaster: _components_reactCrudMaster_reactCrudMaster_reducer__WEBPACK_IMPORTED_MODULE_1__["reactCrudMasterReducer"],
     crudModal: _components_crudModal_crudModal_reducer__WEBPACK_IMPORTED_MODULE_2__["crudModalReducer"],
     colMenuModal: _components_colMenuModal_colMenuModal_reducer__WEBPACK_IMPORTED_MODULE_3__["ColMenuModalReducer"],
@@ -27939,31 +27705,30 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ColModel", function() { return ColModel; });
-var ColModel = /** @class */ (function () {
-    function ColModel(init) {
-        var _this = this;
+class ColModel {
+    constructor(init) {
         this._minWidth = 0;
         this._width = 0;
         this.name = "";
         this.label = "";
         this.orderDirection = "";
         this.showColMenuModal = false;
-        this.calculateMinWithOfColumnByLabel = function (label) {
-            var wordsInColLabel = label.split(" ");
-            var longestWord = wordsInColLabel.reduce(function (a, b) {
-                var aLength = _this.getWidthOfWord(a);
-                var bLength = _this.getWidthOfWord(b);
+        this.calculateMinWithOfColumnByLabel = (label) => {
+            let wordsInColLabel = label.split(" ");
+            var longestWord = wordsInColLabel.reduce((a, b) => {
+                let aLength = this.getWidthOfWord(a);
+                let bLength = this.getWidthOfWord(b);
                 return aLength > bLength ? a : b;
             });
-            return _this.getWidthOfWord(longestWord) + 40;
+            return this.getWidthOfWord(longestWord) + 40;
         };
-        this.getWidthOfWord = function (word) {
-            var tempWordHolder = document.getElementById("label-width-tester");
+        this.getWidthOfWord = (word) => {
+            let tempWordHolder = document.getElementById("label-width-tester");
             tempWordHolder.textContent = word;
             return tempWordHolder.offsetWidth;
         };
         if (!ColModel.created) {
-            var t = document.createElement('span');
+            let t = document.createElement('span');
             t.id = "label-width-tester";
             t.style.fontSize = '16px';
             t.style.fontWeight = '700';
@@ -27981,34 +27746,24 @@ var ColModel = /** @class */ (function () {
             this.width = this.getWidthOfWord(this.label);
         }
     }
-    Object.defineProperty(ColModel.prototype, "minWidth", {
-        get: function () {
-            return this._minWidth;
-        },
-        set: function (value) {
-            if (value < 0)
-                value = this.calculateMinWithOfColumnByLabel(this.label);
-            this._minWidth = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(ColModel.prototype, "width", {
-        get: function () {
-            return this._width;
-        },
-        set: function (value) {
-            if (value <= 0)
-                value = this.getWidthOfWord(this.label);
-            this._width = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    ColModel.created = false;
-    return ColModel;
-}());
-
+    get minWidth() {
+        return this._minWidth;
+    }
+    set minWidth(value) {
+        if (value < 0)
+            value = this.calculateMinWithOfColumnByLabel(this.label);
+        this._minWidth = value;
+    }
+    get width() {
+        return this._width;
+    }
+    set width(value) {
+        if (value <= 0)
+            value = this.getWidthOfWord(this.label);
+        this._width = value;
+    }
+}
+ColModel.created = false;
 
 
 /***/ }),

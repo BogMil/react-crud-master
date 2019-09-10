@@ -14,7 +14,7 @@
     "rolBuild": "rollup -c && tsc",
     "test": "jest --watch --maxWorkers=1",
     "coverage": "jest --coverage",
-    "cypress:open": "cypress open"
+    "cypress-o": "cypress open"
   },
   "author": "",
   "license": "ISC",
@@ -25,10 +25,13 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@bahmutov/add-typescript-to-cypress": "^2.1.2",
+    "@cypress/webpack-preprocessor": "^4.1.0",
     "@testing-library/react": "^8.0.7",
     "@types/enzyme": "^3.10.2",
     "@types/enzyme-adapter-react-16": "^1.0.5",
@@ -38,6 +41,7 @@
     "@types/redux": "^3.6.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "cypress": "^3.4.1",
     "cypress-react-unit-test": "^2.4.3",
@@ -67,8 +71,9 @@
     "rollup-plugin-typescript2": "^0.21.2",
     "style-loader": "^0.23.1",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.2",
-    "webpack": "^4.35.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
     "webpack-cli": "^3.3.5"
   },
   "dependencies": {}

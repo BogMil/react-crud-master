@@ -1,0 +1,12 @@
+import { Component } from "react";
+import '../contexMenu.css';
+import '../reactCrudMaster/reactCrudMaster.css';
+import { ColMenuModalProps, ColMenuModalState, ColMenuModalOwnProps } from "./colMenuModal.types";
+declare class ColMenuModalComponent extends Component<ColMenuModalProps, ColMenuModalState> {
+    constructor(props: ColMenuModalProps);
+    componentDidMount: () => void;
+    render(): JSX.Element;
+}
+declare const _default: import("react-redux").ConnectedComponentClass<typeof ColMenuModalComponent, Pick<ColMenuModalProps, never> & ColMenuModalOwnProps>;
+export default _default;
+//# sourceMappingURL=colMenuModal.component.d.ts.map
